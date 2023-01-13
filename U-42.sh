@@ -44,6 +44,46 @@ done
 # Log updates applied
 yum history > /var/log/updates.log
 
+# 패치 관리 일정 정의
+SCHEDULE= " 0 0 * * 1 "  # 매주 월요일 자정에 실행
+
+# 로그 파일 생성
+터치 /var/log/apache_patch_management.log
+
+# Apache 패치 관리를 위한 cron 작업 추가
+에코  " ${SCHEDULE} 루트 /usr/bin/apt 업데이트 -y >> /var/log/apache_patch_management.log 2>&1
+${SCHEDULE} 루트 /usr/bin/apt 설치 --only-upgrade apache2 -y >> /var/log/apache_patch_management.log 2>&1
+${SCHEDULE} 루트 /etc/init.d/apache2 재시작 >> /var/log/apache_patch_management.log 2>&1 "  | crontab -
+
+
+
+
+# 패치 관리 일정 정의
+SCHEDULE= " 0 0 * * 1 "  # 매주 월요일 자정에 실행
+
+# 로그 파일 생성
+터치 /var/log/mysql_patch_management.log
+
+# MySQL 패치 관리를 위한 cron 작업 추가
+에코  " ${SCHEDULE} 루트 /usr/bin/apt 업데이트 -y >> /var/log/mysql_patch_management.log 2>&1
+${SCHEDULE} 루트 /usr/bin/apt 설치 --only-upgrade mysql-server -y >> /var/log/mysql_patch_management.log 2>&1
+${SCHEDULE} 루트 /etc/init.d/mysql 재시작 >> /var/log/mysql_patch_management.log 2>&1 "  | crontab -
+
+
+
+
+# 패치 관리 일정 정의
+SCHEDULE= " 0 0 * * 1 "  # 매주 월요일 자정에 실행
+
+# 로그 파일 생성
+터치 /var/log/php_patch_management.log
+
+# PHP 패치 관리를 위한 cron 작업 추가
+에코  " ${SCHEDULE} 루트 /usr/bin/apt 업데이트 -y >> /var/log/php_patch_management.log 2>&1
+${SCHEDULE} 루트 /usr/bin/apt 설치 --only-upgrade php -y >> /var/log/php_patch_management.log 2>&1
+${SCHEDULE} 루트 /etc/init.d/php7.4-fpm 재시작 >> /var/log/php_patch_management.log 2>&1 "  | crontab -
+
+
 
 
 cat $result

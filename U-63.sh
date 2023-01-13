@@ -25,8 +25,6 @@ EOF
 BAR
 
 
-#!/bin/bash
-
 # Change owner of the file to root
 chown root:root /etc/vsftpd/ftpusers
 
