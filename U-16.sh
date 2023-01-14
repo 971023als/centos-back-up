@@ -24,10 +24,18 @@ EOF
 
 BAR
 
+# Find files in /dev directory without major or minor number
+find /dev -type f -exec ls -l {} \; | awk '$5 == "0" && $6 == "0" {print $9}' |
+while read file; do
+    # Confirm before deleting
+    read -p "Delete $file? [y/n] " confirm
+    if [ "$confirm" == "y" ]; then
+        rm -f "$file"
+    fi
+done
  
 
  
-
 cat $result
 
 echo ; echo
