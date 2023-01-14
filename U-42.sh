@@ -44,44 +44,71 @@ done
 # Log updates applied
 yum history > /var/log/updates.log
 
-# 패치 관리 일정 정의
-SCHEDULE= " 0 0 * * 1 "  # 매주 월요일 자정에 실행
-
-# 로그 파일 생성
-터치 /var/log/apache_patch_management.log
-
-# Apache 패치 관리를 위한 cron 작업 추가
-에코  " ${SCHEDULE} 루트 /usr/bin/apt 업데이트 -y >> /var/log/apache_patch_management.log 2>&1
-${SCHEDULE} 루트 /usr/bin/apt 설치 --only-upgrade apache2 -y >> /var/log/apache_patch_management.log 2>&1
-${SCHEDULE} 루트 /etc/init.d/apache2 재시작 >> /var/log/apache_patch_management.log 2>&1 "  | crontab -
 
 
 
+# Update system packages
+yum update -y
 
-# 패치 관리 일정 정의
-SCHEDULE= " 0 0 * * 1 "  # 매주 월요일 자정에 실행
+# Check current Apache version
+httpd -v
 
-# 로그 파일 생성
-터치 /var/log/mysql_patch_management.log
+# Set Apache patching policy
+# Example: only apply security-related patches
+PATCH_POLICY="security"
 
-# MySQL 패치 관리를 위한 cron 작업 추가
-에코  " ${SCHEDULE} 루트 /usr/bin/apt 업데이트 -y >> /var/log/mysql_patch_management.log 2>&1
-${SCHEDULE} 루트 /usr/bin/apt 설치 --only-upgrade mysql-server -y >> /var/log/mysql_patch_management.log 2>&1
-${SCHEDULE} 루트 /etc/init.d/mysql 재시작 >> /var/log/mysql_patch_management.log 2>&1 "  | crontab -
+# Check for available Apache patches
+yum list available "httpd*" --disablerepo="*" --enablerepo="updates" | grep $PATCH_POLICY
+
+# Apply patches
+yum update -y "httpd*" --disablerepo="*" --enablerepo="updates" --security
+
+# Restart Apache service
+systemctl restart httpd
 
 
 
 
-# 패치 관리 일정 정의
-SCHEDULE= " 0 0 * * 1 "  # 매주 월요일 자정에 실행
+# Update system packages
+yum update -y
 
-# 로그 파일 생성
-터치 /var/log/php_patch_management.log
+# Check current MySQL version
+mysql --version
 
-# PHP 패치 관리를 위한 cron 작업 추가
-에코  " ${SCHEDULE} 루트 /usr/bin/apt 업데이트 -y >> /var/log/php_patch_management.log 2>&1
-${SCHEDULE} 루트 /usr/bin/apt 설치 --only-upgrade php -y >> /var/log/php_patch_management.log 2>&1
-${SCHEDULE} 루트 /etc/init.d/php7.4-fpm 재시작 >> /var/log/php_patch_management.log 2>&1 "  | crontab -
+# Set MySQL patching policy
+# Example: only apply security-related patches
+PATCH_POLICY="security"
+
+# Check for available MySQL patches
+yum list available "mysql*" --disablerepo="*" --enablerepo="updates" | grep $PATCH_POLICY
+
+# Apply patches
+yum update -y "mysql*" --disablerepo="*" --enablerepo="updates" --security
+
+# Restart MySQL service
+systemctl restart mysqld
+
+
+
+# Update system packages
+yum update -y
+
+# Check current PHP version
+php -v
+
+# Set PHP patching policy
+# Example: only apply security-related patches
+PATCH_POLICY="security"
+
+# Check for available PHP patches
+yum list available "php*" --disablerepo="*" --enablerepo="updates" | grep $PATCH_POLICY
+
+# Apply patches
+yum update -y "php*" --disablerepo="*" --enablerepo="updates" --security
+
+# Restart Apache service
+systemctl restart httpd
+
 
 
 

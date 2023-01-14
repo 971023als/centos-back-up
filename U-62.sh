@@ -25,15 +25,16 @@ EOF
 BAR
 
 
+# Get FTP account ID
+echo "Enter FTP account ID: "
+read FTP_ACCOUNT
 
-# Open the /etc/passwd file
-sed -i 's/\/bin\/bash/\/bin\/false/' /etc/passwd
+# Change login shell for FTP account
+usermod -s /bin/false $FTP_ACCOUNT
 
-# Find the line of the ftp account and change it
-sed -i '/ftp/s/\/bin\/bash/\/bin\/false/' /etc/passwd
+# Verify the change
+grep $FTP_ACCOUNT /etc/passwd
 
-# Verify the changes
-grep ftp /etc/passwd
 
 
 

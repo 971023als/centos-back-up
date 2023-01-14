@@ -26,6 +26,7 @@ EOF
 
 BAR
 
+
 # Define directory to be cleaned
 directory="/path/to/directory"
 
@@ -43,6 +44,7 @@ for file in $hidden_files; do
 done
 
 
+
 # Define directory to be cleaned
 adiosl="/home/adiosl/"
 
@@ -58,6 +60,7 @@ for file in $hidden_files; do
     rm -f $file
   fi
 done
+
 
 # Define directory to be cleaned
 cubrid="/home/cubrid/"

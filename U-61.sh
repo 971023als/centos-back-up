@@ -25,21 +25,20 @@ EOF
 BAR
 
 
-# Stop FTP service
-service vsftpd stop
+# Stop vsftpd service
+systemctl stop vsftpd
 
-# Disable FTP service from starting at boot
-chkconfig vsftpd off
+# Wait for all vsftpd processes to complete
+while pgrep -x "vsftpd" > /dev/null; do
+    sleep 1;
+done
 
-# Remove FTP package
-yum remove vsftpd -y
+# Update system packages
+yum update -y vsftpd
 
-# Block FTP ports in firewall
-iptables -I INPUT -p tcp --dport 21 -j DROP
-iptables -I INPUT -p tcp --dport 20 -j DROP
+# Start vsftpd service
+systemctl start vsftpd
 
-# Save firewall rules
-service iptables save
 
 cat $result
 
