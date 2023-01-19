@@ -3,11 +3,6 @@
  
 
 . function.sh
-
- 
-TMP1=`SCRIPTNAME`.log
-
-> $TMP1   
  
 
 BAR
@@ -24,6 +19,9 @@ EOF
 
 BAR
 
+TMP1=`SCRIPTNAME`.log
+
+> $TMP1
 
 sudo chown root /etc/exports
 

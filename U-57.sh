@@ -4,10 +4,6 @@
 
 . function.sh
 
-TMP1=`SCRIPTNAME`.log
-
-> $TMP1  
-
  
 
 BAR
@@ -24,6 +20,9 @@ EOF
 
 BAR
 
+TMP1=`SCRIPTNAME`.log
+
+> $TMP1  
 
 # Check home directories for incorrect permissions
 for user in $(awk -F: '{ if ($3 >= 1000 && $3 <= 60000) print $1}' /etc/passwd); do

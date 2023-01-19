@@ -3,11 +3,7 @@
  
 
 . function.sh 
- 
-
-TMP1=`SCRIPTNAME`.log
-
->$TMP1  
+   
 
 BAR
 
@@ -22,6 +18,10 @@ cat << EOF >> $result
 EOF
 
 BAR
+
+TMP1=`SCRIPTNAME`.log
+
+>$TMP1  
 
 # Update package list
 yum update -y

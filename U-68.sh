@@ -5,10 +5,6 @@
 . function.sh
 
 
-TMP1=`SCRIPTNAME`.log
-
-> $TMP1   
-
 BAR
 
 CODE [U-68] 로그온 시 경고 메시지 제공
@@ -23,6 +19,9 @@ EOF
 
 BAR
 
+TMP1=`SCRIPTNAME`.log
+
+> $TMP1
 
 # Edit the /etc/motd file
 echo "이 시스템에 오신 것을 환영합니다!" | sudo tee -a /etc/motd

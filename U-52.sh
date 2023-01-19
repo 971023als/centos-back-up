@@ -4,10 +4,6 @@
 
 . function.sh
 
-TMP1=`SCRIPTNAME`.log
-
-> $TMP1
-
  
 
 TMP2=$(mktemp)
@@ -34,6 +30,9 @@ EOF
 
 BAR
 
+TMP1=`SCRIPTNAME`.log
+
+> $TMP1
 
 # Prompt for username
 read -p "Enter username: " username

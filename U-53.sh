@@ -4,11 +4,6 @@
 
 . function.sh
 
- 
-
-TMP1=`SCRIPTNAME`.log
-
-> $TMP1
 
 TMP2=/tmp/tmp1
 
@@ -29,6 +24,11 @@ cat << EOF >> $result
 EOF
 
 BAR
+
+
+TMP1=`SCRIPTNAME`.log
+
+> $TMP1
 
 # Prompt for username
 read -p "Enter username: " username

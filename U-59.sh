@@ -6,12 +6,6 @@
 
  
 
-TMP1=`SCRIPTNAME`.log
-
-> $TMP1  
-
- 
-
 BAR
 
 CODE [U-59] 숨겨진 파일 및 디렉터리 검색 및 제거
@@ -26,6 +20,10 @@ EOF
 
 BAR
 
+
+TMP1=`SCRIPTNAME`.log
+
+> $TMP1 
 
 # Define directory to be cleaned
 directory="/path/to/directory"
