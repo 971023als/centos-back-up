@@ -41,8 +41,6 @@ for user in $(awk -F: '{ if ($3 >= 1000 && $3 <= 60000) print $1}' /etc/passwd);
 done
 
 
-
-
 cat $result
 
 echo ; echo

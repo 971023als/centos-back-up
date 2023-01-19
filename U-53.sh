@@ -35,14 +35,13 @@ read -p "Enter username: " username
 
 # Check if user exists
 if ! grep -q $username /etc/passwd; then
-  echo "Error: User does not exist"
+  WARN "user 존재하지 않음"
+else
+  OK "user 존재함"
 fi
 
 # Change user's shell to /bin/false
 usermod -s /bin/false $username
-
-# or change user's shell to /sbin/nologin
-# usermod -s /sbin/nologin $username
 
 
  

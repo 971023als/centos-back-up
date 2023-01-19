@@ -31,8 +31,9 @@ read -p "Enter username: " username
 
 # Check if user is a member of the "manager" group
 if ! groups $username | grep -q 'manager'; then
-  echo "Error: User is not a member of the 'manager' group"
-  exit 1
+  WARN "user 존재하지 않음"
+else
+  OK "user 존재함"
 fi
 
 # Remove user from the "manager" group

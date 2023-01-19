@@ -32,8 +32,9 @@ read -p "Enter username: " username
 
 # Check if user exists
 if ! grep -q $username /etc/passwd; then
-  echo "Error: User does not exist"
-  exit 1
+  WARN "user 존재하지 않음"
+else
+  OK "user 존재함"
 fi
 
 # Delete user account

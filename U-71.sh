@@ -27,7 +27,7 @@ TMP1=`SCRIPTNAME`.log
 
 
 # Open the Apache configuration file
-sudo nano /etc/httpd/conf/httpd.conf
+sudo vi /etc/httpd/conf/httpd.conf
 
 # Find and edit the ServerTokens setting
 sudo sed -i 's/ServerTokens.*/ServerTokens Prod/' /etc/httpd/conf/httpd.conf
