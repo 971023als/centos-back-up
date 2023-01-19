@@ -19,9 +19,11 @@ EOF
 
 BAR
 
+
 TMP1=`SCRIPTNAME`.log
 
 >$TMP1  
+
 
 # Update package list
 yum update -y

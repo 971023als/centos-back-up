@@ -20,9 +20,11 @@ EOF
 
 BAR
 
+
 TMP1=`SCRIPTNAME`.log
 
 > $TMP1 
+
 
 # Open the Apache configuration file
 sudo nano /etc/httpd/conf/httpd.conf

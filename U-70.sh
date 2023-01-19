@@ -31,9 +31,6 @@ sudo service sendmail stop
 sudo chkconfig sendmail off
 
 
-
-
-
     
 
 cat $result

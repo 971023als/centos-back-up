@@ -36,8 +36,6 @@ grep $FTP_ACCOUNT /etc/passwd
 
 
 
-
-
 cat $result
 
 echo ; echo 

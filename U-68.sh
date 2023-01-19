@@ -43,8 +43,6 @@ sudo sed -i 's/GreetingMessage.*/GreetingMessage=이 시스템에 오신 것을 
 sudo echo "GreetingMessage=다음 경고에 유의하십시오.: " | sudo tee -a /etc/named.conf
 
 
-
-
 cat $result
 
 echo ; echo

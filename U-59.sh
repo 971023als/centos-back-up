@@ -25,6 +25,7 @@ TMP1=`SCRIPTNAME`.log
 
 > $TMP1 
 
+
 # Define directory to be cleaned
 directory="/path/to/directory"
 

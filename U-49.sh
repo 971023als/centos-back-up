@@ -5,9 +5,6 @@
 . function.sh
 
 
-
- 
-
  
 
 BAR
@@ -24,9 +21,11 @@ EOF
 
 BAR
 
+
 TMP1=`SCRIPTNAME`.log
 
 > $TMP1
+
 
 # Prompt for username
 read -p "Enter username: " username
@@ -41,9 +40,6 @@ fi
 userdel -r $username
 
  
-
- 
-
 cat $result
 
 echo ; echo

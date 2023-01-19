@@ -22,9 +22,11 @@ EOF
 
 BAR
 
+
 TMP1=`SCRIPTNAME`.log
 
 > $TMP1
+
 
 # Open the /etc/profile file
 sudo nano /etc/profile

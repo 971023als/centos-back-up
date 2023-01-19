@@ -19,9 +19,11 @@ EOF
 
 BAR
 
+
 TMP1=`SCRIPTNAME`.log
 
 > $TMP1
+
 
 # Open the snmpd.conf file in a text editor
 vi /etc/snmp/snmpd.conf

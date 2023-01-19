@@ -24,7 +24,7 @@ TMP1=`SCRIPTNAME`.log
 
 > $TMP1
 
-sudo rm –rf /etc/hosts.lpd
+sudo rm -rf /etc/hosts.lpd
 
 
 
