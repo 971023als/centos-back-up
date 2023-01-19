@@ -26,12 +26,11 @@ TMP1=`SCRIPTNAME`.log
 > $TMP1 
 
 
-
 # Find and edit the ServerTokens setting
-sudo sed -i 's/ServerTokens.*/ServerTokens Prod/' > /etc/httpd/conf/httpd.conf
+echo 's/ServerTokens.*/ServerTokens Prod/' > /etc/httpd/conf/httpd.conf
 
 # Find and edit the ServerSignature setting
-sudo sed -i 's/ServerSignature On/ServerSignature Off/' > /etc/httpd/conf/httpd.conf
+echo 's/ServerSignature On/ServerSignature Off/' > /etc/httpd/conf/httpd.conf
 
 # Restart Apache to apply the changes
 sudo service httpd restart

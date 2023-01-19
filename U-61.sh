@@ -36,9 +36,6 @@ done
 # Update system packages
 yum update -y vsftpd
 
-# Start vsftpd service
-systemctl start vsftpd
-
 
 cat $result
 

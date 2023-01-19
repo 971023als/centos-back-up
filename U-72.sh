@@ -39,9 +39,6 @@ echo "*.emerg *" > /etc/rsyslog.conf
 # Restart the rsyslog daemon
 systemctl restart rsyslog
 
-
-
-
 cat $result
 
 echo ; echo 
