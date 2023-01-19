@@ -27,15 +27,10 @@ TMP1=`SCRIPTNAME`.log
 > $TMP1 
 
 
-# Open the /etc/profile file
-sudo nano /etc/profile
-
 # Add the following line to the file
-echo "umask 022" | sudo tee -a /etc/profile
-echo "export umask" | sudo tee -a /etc/profile
+echo "umask 022"  > /etc/profile
+echo "export umask" > /etc/profile
 
-# Reload the profile file
-source /etc/profile
 
 
 
