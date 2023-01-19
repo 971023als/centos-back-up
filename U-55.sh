@@ -24,7 +24,7 @@ EOF
 
 BAR
 
-
+sudo rm –rf /etc/hosts.lpd
 
 
 
