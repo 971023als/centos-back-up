@@ -4,7 +4,7 @@
 
 BAR
 
-CODE [U-20] Anonymous FTP 비활성화		
+CODE [U-20] Anonymous FTP 비활성화
 
 cat << EOF >> $result
 
@@ -16,68 +16,59 @@ EOF
 
 BAR
 
-# /etc/passwd 파일에서 FTP 또는 익명 계정을 삭제
-if [ "$(id -u)" != "0" ]; then
-   echo "This script must be run as root" 1>&2
-   exit 1
-fi
+TMP1=`SCRIPTNAME`.log
 
-# 삭제할 계정의 사용자 이름 가져오기
-read -p "Enter the username of the account to delete: " username
+>$TMP1  
 
-# 계정이 /etc/passwd 파일에 있는지 확인
-grep -q "^$username:" /etc/passwd
-if [ $? -eq 0 ]; then
-    # /etc/passwd 파일에서 계정 삭제
-    sed -i "/^$username:/d" /etc/passwd
-    echo "Account $username has been deleted from /etc/passwd"
+# 익명 FTP 액세스가 차단되지 않았는지 확인
+if grep -q "^#.*anonymous_enable=YES" /etc/vsftpd.conf; then
+    # 익명 계정이 /etc/passwd 파일에 있는지 확인
+    if grep -q "^ftp:" /etc/passwd; then
+        # userdel 명령을 사용하여 계정 삭제
+        userdel ftp
+        echo "The anonymous FTP account has been deleted."
+    else
+        echo "The anonymous FTP account does not exist."
+    fi
 else
-    echo "Account $username does not exist in /etc/passwd"
+    echo "Anonymous FTP access is blocked, account can't be deleted."
 fi
 
 
+# Ubuntu 20의 proftpd.conf에서 익명 설정과 관련된 사용자 및 사용자 별칭 항목에 주석을 다는 스크립트
 
-# 사용자가 루트인지 확인
-if [ "$(id -u)" != "0" ]; then
-   echo "This script must be run as root" 1>&2
-   exit 1
+# proftpd가 설치되어 있는지 확인
+if dpkg -s proftpd &> /dev/null; then
+    # 원래 구성 파일 백업
+    cp /etc/proftpd/proftpd.conf /etc/proftpd/proftpd.conf.bak
+
+    # 사용자 및 사용자 별칭 항목 주석 달기
+    sed -i '/^User.*anonymous/ s/^/#/' /etc/proftpd/proftpd.conf
+    sed -i '/^Useralias.*anonymous/ s/^/#/' /etc/proftpd/proftpd.conf
+
+    # proftpd 서비스 다시 시작
+    service proftpd restart
+    echo "User and Useralias entries related to anonymous settings have been annotated in proftpd.conf."
+else
+    echo "ProFTPD is not installed on this system."
 fi
 
-# proftpd.conf 파일의 위치를 확인
-proftpd_conf_file=$(find / -name proftpd.conf 2>/dev/null)
 
-if [ ! -f "$proftpd_conf_file" ]; then
-    echo "proftpd.conf file not found"
-    exit 1
-fi
-
-# 익명 설정과 관련된 User 및 UserAlias 항목에 주석을 추가
-sed -i '/^User \+anonymous/s/^/#/' $proftpd_conf_file
-sed -i '/^UserAlias/s/^/#/' $proftpd_conf_file
-echo "User and UserAlias items related to anonymous settings have been annotated in $proftpd_conf_file"
-
-
-
-# 사용자가 루트인지 확인
-if [ "$(id -u)" != "0" ]; then
-   echo "This script must be run as root" 1>&2
-   exit 1
-fi
-
-# vsftpd.conf 파일이 있는지 확인
-if [ ! -f "/etc/vsftpd/vsftpd.conf" ] && [ ! -f "/etc/vsftpd.conf" ]; then
-    echo "vsftpd.conf file not found"
-    exit 1
-fi
-
-# Anonymous_enable을 NO로 설정
+# vsftpd.conf 파일이 /etc/vsftpd/에 있는지 확인
 if [ -f "/etc/vsftpd/vsftpd.conf" ]; then
-    sed -i 's/^anonymous_enable=.*/anonymous_enable=NO/' /etc/vsftpd/vsftpd.conf
-    echo "anonymous_enable set to NO in /etc/vsftpd/vsftpd.conf"
-elif [ -f "/etc/vsftpd.conf" ]; then
-    sed -i 's/^anonymous_enable=.*/anonymous_enable=NO/' /etc/vsftpd.conf
-    echo "anonymous_enable set to NO in /etc/vsftpd.conf"
+    # anonymous_enable=YES를 anonymous_enable=NO로 바꾸기
+    sed -i 's/anonymous_enable=YES/anonymous_enable=NO/g' /etc/vsftpd/vsftpd.conf
+else
+    # vsftpd.conf 파일이 /etc/에 있는지 확인
+    if [ -f "/etc/vsftpd.conf" ]; then
+        # anonymous_enable=YES를 anonymous_enable=NO로 바꾸기
+        sed -i 's/anonymous_enable=YES/anonymous_enable=NO/g' /etc/vsftpd.conf
+    else
+        echo "vsftpd.conf file not found in /etc/vsftpd/ or /etc/"
+    fi
 fi
+
+
 
 cat $result
 
