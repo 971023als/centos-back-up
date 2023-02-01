@@ -17,8 +17,6 @@ EOF
 
 BAR
 
-# vi 편집기로 /etc/pam.d/su 파일 열기
-vi /etc/pam.d/su
 
 # /etc/pam.d/su 파일을 아래와 같이 설정(주석제거)
 auth sufficient /lib/security/pam_rootok.so

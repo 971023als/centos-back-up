@@ -21,8 +21,6 @@ BAR
 #
 sudo service nfs stop
 
-#
-sudo vi /etc/exports
 
 #
 sudo exportfs -rav

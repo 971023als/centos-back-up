@@ -16,8 +16,7 @@ EOF
 
 BAR
 
-#
-sudo vi /etc/exports
+
 
 #
 sudo exportfs -rav

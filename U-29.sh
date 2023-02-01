@@ -16,12 +16,6 @@ EOF
 
 BAR
 
-# vi를 사용하여 디렉토리 "/etc/xinetd.d/"에서 tftp, talk, ntalk 파일 열기
-for service in tftp talk ntalk; do
-    if [ -f "/etc/xinetd.d/$service" ]; then
-        vi "/etc/xinetd.d/$service"
-    fi
-done
 
 
 

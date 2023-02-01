@@ -16,8 +16,6 @@ EOF
 
 BAR
 
-# vi 편집기로 /etc/mail/ 디렉토리에 있는 파일을 편집
-sudo vi /etc/mail/sendmail.cf
 
 
 

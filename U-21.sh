@@ -16,14 +16,6 @@ EOF
 
 BAR
 
-# vi 편집기를 이용하여 “/etc/xinetd.d/” 디렉터리 내 rlogin, rsh, rexec 파일 열기
-FILES=(/etc/xinetd.d/rlogin /etc/xinetd.d/rsh /etc/xinetd.d/rexec)
-
-for FILE in "${FILES[@]}"
-do
-    vi $FILE
-done
-
 
 
 # rlogin 파일 생성

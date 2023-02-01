@@ -21,18 +21,47 @@ vi /etc/xinetd.d/{echo,discard,daytime,chargen}
 
 
 
-#
-sudo vi echo
 
-#
-service echo
+# echo 파일 생성
+echo "service echo
 {
 disable = yes
 id = echo-stream
 type = internal
 wait = no
 socket_type = stream
-}
+}" > /etc/xinetd.d/echo
+
+# discard 파일 생성
+echo "service discard
+{
+disable = yes
+id = echo-stream
+type = internal
+wait = no
+socket_type = stream
+}" > /etc/xinetd.d/discard
+
+# daytime 파일 생성
+echo "service daytime
+{
+disable = yes
+id = echo-stream
+type = internal
+wait = no
+socket_type = stream
+}" > /etc/xinetd.d/daytime
+
+# daytime 파일 생성
+echo "service chargen
+{
+disable = yes
+id = echo-stream
+type = internal
+wait = no
+socket_type = stream
+}" > /etc/xinetd.d/chargen
+
 
 
 

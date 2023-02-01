@@ -16,13 +16,6 @@ EOF
 
 BAR
 
-# vi를 사용하여 디렉토리 "/etc/xinetd.d/"에서 불필요한 모든 RPC 서비스 파일 열기
-for file in /etc/xinetd.d/*; do
-    if grep -q "disable.*=.*yes" "$file"; then
-        vi "$file"
-    fi
-done
-
 
 
 # finger 파일 생성
