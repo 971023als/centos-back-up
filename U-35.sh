@@ -4,7 +4,7 @@
 
 BAR
 
-CODE [U-35] 웹 서비스(Apache) 디렉토리 리스팅 제거		
+CODE [U-35] 웹서비스 디렉토리 리스팅 제거
 
 cat << EOF >> $result
 
@@ -16,18 +16,28 @@ EOF
 
 BAR
 
-# vi를 사용하여 httpd.conf 파일 열기
-vi /[Apache_home]/conf/httpd.conf
+TMP1=`SCRIPTNAME`.log
+
+>$TMP1  
+
+# Apache 구성 파일 정의
+file="/[Apache_home]/conf/httpd.conf"
+
+# 파일이 있는지 확인
+if [ -f "$file" ]; then
+    #  vi 편집기에서 파일을 열고 "Options"을 검색
+    vi +/Options "$file"
+    # "Options Indexes"을 "Options"으로 바꾸기
+    :%s/Options Indexes/Options/g
+    # 파일 저장 후 종료
+    :wq
+else
+    echo "httpd.conf file not found in /[Apache_home]/conf/"
+fi
 
 
 
-# 모든 디렉토리의 옵션 표시기에서 인덱스 제거 옵션
-find / -type d -name '*' -exec sed -i 's/Options Indexes/Options/g' {}/.htaccess \;
-
-# 모든 디렉터리의 옵션 표시기에서 FollowSymlinks 제거 옵션
-find / -type d -name '*' -exec sed -i 's/FollowSymLinks//g' {}/.htaccess \;
 
 cat $result
 
 echo ; echo
-

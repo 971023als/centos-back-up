@@ -4,7 +4,7 @@
 
 BAR
 
-CODE [U-40] 웹 서비스(Apache) 파일 업로드 및 다운로드 제한		
+CODE [U-40] 웹서비스 파일 업로드 및 다운로드 제한
 
 cat << EOF >> $result
 
@@ -16,30 +16,34 @@ EOF
 
 BAR
 
-# vi 편집기를 사용하여 /[Apache_home]/conf/httpd.conf 파일 열기
-APACHE_HOME=[path-to-Apache-directory]
+TMP1=`SCRIPTNAME`.log
 
-vi ${APACHE_HOME}/conf/httpd.conf
+>$TMP1  
+
+#@@@@@파일크기 5000000으로 할지 아래처럼 할지 확인
+
+# 파일 크기 제한 설정(바이트)
+limit=1048576
+
+# Apache 구성 파일 열기
+sudo nano /[Apache_home]/conf/httpd.conf
+
+# 모든 집합 디렉토리에 LimitRequestBody 지시어 추가
+# R[Directory_Path]를 실제 디렉터리 경로로 바꿉니다
+echo "
+<Directory [Directory_Path]>
+    LimitRequestBody $limit
+</Directory>" >> /[Apache_home]/conf/httpd.conf
+
+# 변경 내용을 적용하려면 파일을 저장하고 Apache를 다시 시작
+sudo service apache2 restart
 
 
 
-# 설정된 모든 디렉터리의 LimitRequestBody 지시자에서 파일 사이즈 용량 제한 설정
-APACHE_HOME=[path-to-Apache-directory]
 
-LIMIT=2048000
 
-CONF_FILES=($APACHE_HOME/conf.d/*.conf)
 
-for FILE in "${CONF_FILES[@]}"
-do
-  if grep -q "LimitRequestBody" "$FILE"; then
-    sed -i "s/LimitRequestBody .*/LimitRequestBody $LIMIT/g" "$FILE"
-  else
-    echo "LimitRequestBody $LIMIT" >> "$FILE"
-  fi
-done
 
 cat $result
 
 echo ; echo
-
