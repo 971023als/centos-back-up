@@ -20,20 +20,20 @@ TMP1=`SCRIPTNAME`.log
 
 >$TMP1  
 
-#@@@@@@@@@100이상으로 하면 되는데, 어떤값으로 하면 좋은지 상의필요.@@@@@@@@@@
+#@@@@@@@@@500이상으로 하면 되는데, 어떤값으로 하면 좋은지 상의필요.@@@@@@@@@@
 
 # 현재 UID가 0인지 확인
-if [ $UID -eq 0 ]; then
-  # UID를 100으로 변경 
-  usermod -u 100 $USER
+if [ "$(id -u)" -eq 0 ]; then
+  # UID를 500으로 변경 
+  usermod -u 500 "$USER"
   # UID 변경이 성공했는지 확인
   if [ $? -eq 0 ]; then
-    echo "UID successfully changed to 100"
+    OK "UID가 500으로 변경되었습니다."
   else
-    echo "Error: UID change failed"
+    WARN "UID 변경 실패"
   fi
 else
-  echo "Error: Only root user can change UID"
+  INFO "루트 사용자만 UID를 변경할 수 있습니다"
 fi
 
 cat $result

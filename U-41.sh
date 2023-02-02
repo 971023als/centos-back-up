@@ -31,7 +31,7 @@ cp /usr/local/apache2/conf/httpd.conf /usr/local/apache2/conf/httpd.conf.bak
 sed -i "s@DocumentRoot /usr/local/apache2/htdocs@DocumentRoot $NEW_DOCUMENT_ROOT@g" /usr/local/apache2/conf/httpd.conf
 
 # Apache를 재시작하여 변경 내용 적용
-systemctl restart apache2
+sudo service apache restart
 
 
 

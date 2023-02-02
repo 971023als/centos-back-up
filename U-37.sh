@@ -23,6 +23,8 @@ TMP1=`SCRIPTNAME`.log
 # Apache 구성 파일 정의
 file="/etc/conf/httpd.conf"
 
+if [ -f "$file" ]; then
+
 # "AllowOverrideNone"을 "AllowOverride AuthConfig"로 바꿉니다
 sed -i 's/AllowOverride None/AllowOverride AuthConfig/g' $file
 

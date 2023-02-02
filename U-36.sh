@@ -22,15 +22,15 @@ TMP1=`SCRIPTNAME`.log
 
 # [Apache_home], [username] 및 [groupname]을(를) 적절한 값으로 바꿈
 APACHE_CONF_FILE=etc/conf/httpd.conf
-USERNAME=[username]
-GROUPNAME=[groupname]
+USERNAME=adiosl
+GROUPNAME=adiosl
 
 # 사용자 및 그룹 행을 새 값으로 바꿈
 sed -i "s/User.*/User $USERNAME/g" $APACHE_CONF_FILE
 sed -i "s/Group.*/Group $GROUPNAME/g" $APACHE_CONF_FILE
 
 # Apache 서비스 다시 시작
-systemctl restart apache2
+sudo service apache restart
 
 cat $result
 
