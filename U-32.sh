@@ -22,7 +22,6 @@ BAR
 file="/etc/mail/sendmail.cf"
 
 # vi 편집기를 사용하여 파일 열기
-vi $file
 
 
 
