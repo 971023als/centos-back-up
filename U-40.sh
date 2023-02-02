@@ -26,14 +26,13 @@ TMP1=`SCRIPTNAME`.log
 limit=1048576
 
 # Apache 구성 파일 열기
-sudo vi /[Apache_home]/conf/httpd.conf
 
 # 모든 집합 디렉토리에 LimitRequestBody 지시어 추가
 # R[Directory_Path]를 실제 디렉터리 경로로 바꿉니다
 echo "
 <Directory [Directory_Path]>
     LimitRequestBody $limit
-</Directory>" >> /[Apache_home]/conf/httpd.conf
+</Directory>" >> /etc/conf/httpd.conf
 
 # 변경 내용을 적용하려면 파일을 저장하고 Apache를 다시 시작
 sudo service apache2 restart
