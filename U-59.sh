@@ -44,19 +44,24 @@ for file in $hidden_files; do
 done
 
 
-# Define directory to be cleaned
-cubrid="/home/cubrid/"
+# Define hidden files and directories
+hidden_files=$(find / -type f -name ".*")
+hidden_dirs=$(find / -type d -name ".*")
 
-# Change to directory
-cd $cubrid
-
-# Find all hidden files
-hidden_files=`find . -name ".*"`
-
-# Loop through hidden files and delete them
+# Check if any unwanted or suspicious files or directories exist
 for file in $hidden_files; do
-  if [ -f $file ]; then
-    rm -f $file
+  if [[ $(basename $file) =~ "unwanted-file" ]]; then
+    echo "Found unwanted file: $file"
+    # Perform desired action, such as deleting the file or sending a notification
+    rm $file
+  fi
+done
+
+for dir in $hidden_dirs; do
+  if [[ $(basename $dir) =~ "suspicious-dir" ]]; then
+    echo "Found suspicious directory: $dir"
+    # Perform desired action, such as deleting the directory or sending a notification
+    rm -r $dir
   fi
 done
 
