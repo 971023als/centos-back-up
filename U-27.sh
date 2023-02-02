@@ -30,9 +30,6 @@ disable = yes
 
 
 
-# xinetd 서비스 재시작
-systemctl restart xinetd
-
 cat $result
 
 echo ; echo

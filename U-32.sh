@@ -42,12 +42,6 @@ fi
 # Sendmail 서비스 다시 시작
 service sendmail restart
 
-# 서비스 상태 점검
-if systemctl is-active --quiet sendmail; then
-    echo "Sendmail service restarted successfully"
-else
-    echo "Failed to restart Sendmail service"
-fi
 
 cat $result
 

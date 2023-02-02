@@ -4,7 +4,7 @@
 
 BAR
 
-CODE [U-10] /etc/(x)inetd.conf 파일 소유자 및 권한 설정		
+CODE [U-10] /etc/inetd.conf 파일 소유자 및 권한 설정		
 
 cat << EOF >> $result
 

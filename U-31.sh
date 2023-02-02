@@ -36,12 +36,6 @@ sed -i '/#R/ s/#//' $file
 
 
 
-#
-Connect:IP RELAY
-Connect:domain RELAY
-Connect:email@domain RELAY
-Connect:network RELAY
-
 
 
 # 파일 경로 지정
