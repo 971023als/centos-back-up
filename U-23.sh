@@ -16,8 +16,6 @@ EOF
 
 BAR
 
-#
-vi /etc/xinetd.d/{echo,discard,daytime,chargen}
 
 
 
