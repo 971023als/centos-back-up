@@ -24,6 +24,7 @@ TMP1=`SCRIPTNAME`.log
 
 > $TMP1
 
+
 # 계정 이름 정의
 account_name="ftp"
 
@@ -41,7 +42,6 @@ if [ "$current_shell" != "/bin/false" ]; then
   # /etc/passwd 파일 업데이트
   sudo sed -i "s#$line#$new_line#" /etc/passwd
 fi
-
 
 
 cat $result
