@@ -27,23 +27,6 @@ TMP1=`SCRIPTNAME`.log
 
 
 
-# Define directory to be cleaned
-adiosl="/home/adiosl/"
-
-# Change to directory
-cd $adiosl
-
-# Find all hidden files
-hidden_files=`find . -name ".*"`
-
-# Loop through hidden files and delete them
-for file in $hidden_files; do
-  if [ -f $file ]; then
-    rm -f $file
-  fi
-done
-
-
 # Define hidden files and directories
 hidden_files=$(find / -type f -name ".*")
 hidden_dirs=$(find / -type d -name ".*")
