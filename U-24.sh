@@ -39,15 +39,6 @@ sudo service mountd status
 
 
 
-# 스크립트의 이름 변경
-sudo rm <script_name>
-
-#
-sudo mv <script_name> <new_script_name>
-
-# 
-sudo chkconfig <script_name> off
-
 cat $result
 
 echo ; echo
