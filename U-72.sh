@@ -36,8 +36,6 @@ echo "cron.* /var/log/cron" > /etc/rsyslog.conf
 echo "*.alert /dev/console" > /etc/rsyslog.conf
 echo "*.emerg *" > /etc/rsyslog.conf
 
-# Restart the rsyslog daemon
-systemctl restart rsyslog
 
 cat $result
 
