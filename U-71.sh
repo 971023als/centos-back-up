@@ -26,14 +26,26 @@ TMP1=`SCRIPTNAME`.log
 > $TMP1 
 
 
-# Find and edit the ServerTokens setting
-echo 's/ServerTokens.*/ServerTokens Prod/' > /etc/httpd/conf/httpd.conf
+# Check if the ServerTokens directive is already set
+grep -q "^ServerTokens" /etc/httpd/conf/httpd.conf
+if [ $? -eq 0 ]; then
+  # Replace the existing ServerTokens directive
+  sed -i 's/^ServerTokens.*/ServerTokens Prod/' /etc/httpd/conf/httpd.conf
+else
+  # Add the ServerTokens directive
+  echo "ServerTokens Prod" >> /etc/httpd/conf/httpd.conf
+fi
 
-# Find and edit the ServerSignature setting
-echo 's/ServerSignature On/ServerSignature Off/' > /etc/httpd/conf/httpd.conf
+# Check if the ServerSignature directive is already set
+grep -q "^ServerSignature" /etc/httpd/conf/httpd.conf
+if [ $? -eq 0 ]; then
+  # Replace the existing ServerSignature directive
+  sed -i 's/^ServerSignature.*/ServerSignature Off/' /etc/httpd/conf/httpd.conf
+else
+  # Add the ServerSignature directive
+  echo "ServerSignature Off" >> /etc/httpd/conf/httpd.conf
+fi
 
-# Restart Apache to apply the changes
-sudo service httpd restart
 
 
 

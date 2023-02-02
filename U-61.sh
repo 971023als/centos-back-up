@@ -26,7 +26,7 @@ TMP1=`SCRIPTNAME`.log
 
 
 # Stop vsftpd service
-systemctl stop vsftpd
+service stop vsftpd
 
 # Wait for all vsftpd processes to complete
 while pgrep -x "vsftpd" > /dev/null; do
