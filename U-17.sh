@@ -41,6 +41,7 @@ sudo chmod 600 $HOME/.rhosts
 
 
 #@@@@@@@@@@@@@@@@@@@@@@@이스크립트 맞는지 확인필요@@@@@@@@@@@@@@@@@@@@@@
+
 # /etc/messages.equiv에서 "+" 제거
 sed -i '/^+/d' /etc/hosts.equiv
 
