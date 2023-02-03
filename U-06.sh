@@ -4,7 +4,7 @@
 
 BAR
 
-CODE [U-06] 파일 및 디렉터리 소유자 설정
+CODE [U-06] 파일 및 디렉터리 소유자 설정 @@su 말고 sudo su 해야 함 @@
 
 cat << EOF >> $result
 
