@@ -25,10 +25,10 @@ TMP1=`SCRIPTNAME`.log
 > $TMP1 
 
 
-# Backup the original rsyslog.conf file
+# 원본 rsyslog.conf 파일 백업
 cp /etc/rsyslog.conf /etc/rsyslog.conf.bak
 
-# Modify the rsyslog.conf file
+# rsyslog.conf 파일 수정
 echo "*.info;mail.none;authpriv.none;cron.none /var/log/messages" > /etc/rsyslog.conf
 echo "authpriv.* /var/log/secure" > /etc/rsyslog.conf
 echo "mail.* /var/log/maillog" > /etc/rsyslog.conf

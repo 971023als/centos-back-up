@@ -26,11 +26,13 @@ TMP1=`SCRIPTNAME`.log
 > $TMP1  
 
 
-sudo yum install openssh-server
+sudo yum install openssh-server -y
 
-sudo service sshd start
+sudo service start ssh
 
-sudo chkconfig sshd on
+sudo service enable ssh
+
+service status ssh
 
 
 cat $result
