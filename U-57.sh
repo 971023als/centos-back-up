@@ -26,7 +26,7 @@ TMP1=`SCRIPTNAME`.log
 > $TMP1  
 
 
-# Check home directories for incorrect permissions
+# 홈 디렉토리에서 잘못된 사용 권한 확인
 for user in $(awk -F: '{ if ($3 >= 1000 && $3 <= 60000) print $1}' /etc/passwd); do
   if [ -d /home/$user ]; then
     owner=$(stat -c %U /home/$user)

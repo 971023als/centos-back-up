@@ -4,7 +4,7 @@
 
 BAR
 
-CODE [U-06] 파일 및 디렉터리 소유자 설정
+CODE [U-06] 파일 및 디렉터리 소유자 설정 @@su 말고 sudo su 해야 함 @@
 
 cat << EOF >> $result
 
@@ -20,20 +20,16 @@ TMP1=`SCRIPTNAME`.log
 
 >$TMP1  
 
-root_dir="/path/to/root/directory"
-new_owner="new_user"
+# specify the user to replace the owner with
+new_owner=adiosl
 
-for file in "$root_dir"/*; do
-  if [ ! -e "$file" ]; then
-    continue
-  fi
-  
-  owner=$(stat -c '%U' "$file")
-  if [ -z "$owner" ]; then
-    rm -rf "$file"
-  elif [ "$owner" != "$new_owner" ]; then
-    chown "$new_owner" "$file"
-  fi
+# find files and directories with nonexistent owners and groups
+results=$(find / \( -nouser -o -nogroup \) -print 2>/dev/null)
+
+# loop through each item in the results
+for item in $results; do
+  # change the owner to the specified user
+  chown $new_owner:$new_owner "$item"
 done
 
 cat $result

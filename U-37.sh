@@ -20,6 +20,8 @@ TMP1=`SCRIPTNAME`.log
 
 >$TMP1  
 
+
+
 # Apache 구성 파일 정의
 file="/etc/conf/httpd.conf"
 

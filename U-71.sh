@@ -26,23 +26,23 @@ TMP1=`SCRIPTNAME`.log
 > $TMP1 
 
 
-# Check if the ServerTokens directive is already set
+# ServerTokens 지시문이 이미 설정되어 있는지 확인
 grep -q "^ServerTokens" /etc/httpd/conf/httpd.conf
 if [ $? -eq 0 ]; then
-  # Replace the existing ServerTokens directive
+  # 기존 ServerTokens 지시문 교체
   sed -i 's/^ServerTokens.*/ServerTokens Prod/' /etc/httpd/conf/httpd.conf
 else
-  # Add the ServerTokens directive
+  # ServerTokens 지시문 추가
   echo "ServerTokens Prod" >> /etc/httpd/conf/httpd.conf
 fi
 
-# Check if the ServerSignature directive is already set
+# ServerSignature 지시문이 이미 설정되어 있는지 확인
 grep -q "^ServerSignature" /etc/httpd/conf/httpd.conf
 if [ $? -eq 0 ]; then
-  # Replace the existing ServerSignature directive
+  # 기존 ServerSignature 지시문 교체
   sed -i 's/^ServerSignature.*/ServerSignature Off/' /etc/httpd/conf/httpd.conf
 else
-  # Add the ServerSignature directive
+  # ServerSignature 지시어 추가
   echo "ServerSignature Off" >> /etc/httpd/conf/httpd.conf
 fi
 
