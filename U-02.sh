@@ -20,15 +20,14 @@ TMP1=`SCRIPTNAME`.log
 
 >$TMP1  
 
-# 확인필요
-
-# 원본 파일을 백업
+# 원본 파일을 백업하다
 cp /etc/pam.d/system-auth /etc/pam.d/system-auth.bak
 
-# 파일 내용 변경
-echo -e "auth required /lib/security/pam_tally.so deny=5 unlock_time=120\nno_magic_root\naccount required /lib/security/pam_tally.so no_magic_root reset" > /etc/pam.d/system-auth
+# 최소 암호 길이를 8자로 설정
+sed -i 's/password    requisite     pam_cracklib.so try_first_pass retry=3 type=.*/password    requisite     pam_cracklib.so try_first_pass retry=3 minlen=8/' /etc/pam.d/system-auth
 
-
+# 영문, 숫자 및 특수 문자 필요
+echo "password    requisite     pam_cracklib.so try_first_pass retry=3 minlen=8 lcredit=-1 ucredit=-1 dcredit=-1 ocredit=-1" >> /etc/pam.d/system-auth
 
 cat $result
 
