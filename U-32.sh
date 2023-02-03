@@ -30,11 +30,11 @@ file="/etc/mail/sendmail.cf"
 
 # restrictqrun 옵션이 이미 있는지 확인
 if grep -q "restrictqrun" $file; then
-    echo "restrictqrun option already exists"
+    OK "옵션이 이미 있습니다"
 else
     # restrictqrun 옵션 추가
     sed -i '/O PrivacyOptions=/ s/$/, restrictqrun/' $file
-    echo "restrictqrun option added successfully"
+    INFO "옵션이 추가되었습니다"
 fi
 
 

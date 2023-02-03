@@ -41,9 +41,9 @@ echo "Patches installed at $(date)" >> $log_file
 
 # Verify installed patches
 if yum -s dist-upgrade | grep "0 upgraded, 0 newly installed"; then
-  OK "No new patches available"
+  OK "사용 가능한 새 패치가 없습니다"
 else
-  WARN "New patches available"
+  WARN "사용 가능한 새 패치가 존재합니다"
 fi
 
 

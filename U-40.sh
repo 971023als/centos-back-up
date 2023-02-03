@@ -35,7 +35,7 @@ echo "
 </Directory>" >> /etc/conf/httpd.conf
 
 # 변경 내용을 적용하려면 파일을 저장하고 Apache를 다시 시작
-sudo service apache2 restart
+sudo service apache restart
 
 
 

@@ -25,16 +25,14 @@ TMP1=`SCRIPTNAME`.log
 > $TMP1 
 
 
-# Stop vsftpd service
-systemctl stop vsftpd
+# FTP 서비스를 중지합니다:
+sudo service ftpd stop
 
-# Wait for all vsftpd processes to complete
-while pgrep -x "vsftpd" > /dev/null; do
-    sleep 1;
-done
+# 부팅 시 FTP 서비스를 시작하지 않도록 설정합니다
+sudo chkconfig ftpd off
 
-# Update system packages
-yum update -y vsftpd
+# FTP 서비스가 중지되고 비활성화되었는지 확인합니다:
+sudo service ftpd status
 
 
 cat $result
