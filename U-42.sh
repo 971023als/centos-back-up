@@ -24,22 +24,22 @@ TMP1=`SCRIPTNAME`.log
 
 >$TMP1  
 
-# Set the log file path
+# 로그 파일 경로 설정
 log_file="/var/log/patch.log"
 
-# Check if the patch log file exists
+# 패치 로그 파일이 존재하는지 확인
 if [ ! -f $log_file ]; then
   touch $log_file
 fi
 
-# Install patches
+# 패치 설치
 yum update
 yum upgrade -y
 
-# Log the patches installed
+# 설치된 패치 기록
 echo "Patches installed at $(date)" >> $log_file
 
-# Verify installed patches
+# 설치된 패치 확인
 if yum -s dist-upgrade | grep "0 upgraded, 0 newly installed"; then
   OK "사용 가능한 새 패치가 없습니다"
 else
