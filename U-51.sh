@@ -33,7 +33,9 @@ TMP1=`SCRIPTNAME`.log
 
 > $TMP1
 
-necessary_groups=("root" "sudo" "sys" "adm" "wheel" "daemon" "bin" "daemon" "adm" "lp" "sync" "shutdown" "halt" "adiosl" "mysql" "cubrid")
+necessary_groups=("root" "sudo" "sys" "adm" "wheel" 
+"daemon" "bin" "lp" "dbus" "rpc" "rpcuser" "haldaemon" 
+"apache" "postfix" "gdm" "adiosl" "mysql" "cubrid")
 
 all_groups=$(getent group | awk -F: '{print $1}')
 

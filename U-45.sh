@@ -25,7 +25,10 @@ chgrp wheel /bin/su
 chmod 4750 /bin/su
 
 # 지정한 그룹을 새 셸에 추가합니다
-new_accounts="root bin daemon adm lp sync shutdown halt adiosl mysql cubrid"
+new_accounts=("root" "sudo" "sys" "adm" "wheel" 
+"daemon" "bin" "lp" "dbus" "rpc" "rpcuser" "haldaemon" 
+"apache" "postfix" "gdm" "adiosl" "mysql" "cubrid")
+
 echo "Adding accounts: $new_accounts"
 for account in $new_accounts; do
   usermod -a -G wheel $account

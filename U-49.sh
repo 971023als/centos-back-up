@@ -27,7 +27,10 @@ TMP1=`SCRIPTNAME`.log
 > $TMP1
 
 
-necessary_accounts=("root" "bin" "daemon" "adm" "lp" "sync" "shutdown" "halt" "adiosl" "mysql" "cubrid")
+necessary_accounts=("root" "bin" "daemon" "adm" 
+"lp" "sync" "shutdown" "halt" "adiosl" "mysql" 
+"cubrid" "dbus" "rpc" "rpcuser" "haldaemon" 
+"apache" "postfix" "gdm")
 
 all_users=$(getent passwd | awk -F: '{print $1}')
 
