@@ -43,7 +43,7 @@ echo "Patches installed at $(date)" >> $log_file
 if yum -s dist-upgrade | grep "0 upgraded, 0 newly installed"; then
   OK "사용 가능한 새 패치가 없습니다"
 else
-  WARN "사용 가능한 새 패치가 존재합니다"
+  INFO "사용 가능한 새 패치가 존재합니다"
 fi
 
 
