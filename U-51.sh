@@ -36,9 +36,9 @@ TMP1=`SCRIPTNAME`.log
 necessary_groups=("root" "sudo" "sys" "adm" "wheel" 
 "daemon" "bin" "lp" "dbus" "rpc" "rpcuser" "haldaemon" 
 "apache" "postfix" "gdm" "adiosl" "mysql" "cubrid"
-"sync" "messagebus" "syslog" "avahi" "whoopsie"
+ "messagebus" "syslog" "avahi" "whoopsie"
 "colord" "systemd-network" "systemd-resolve"
-"systemd-timesync" "mysql")
+"systemd-timesync" "mysql" "sync" "user")
 
 all_groups=$(getent group | awk -F: '{print $1}')
 
