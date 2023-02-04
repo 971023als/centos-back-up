@@ -28,8 +28,11 @@ TMP1=`SCRIPTNAME`.log
 
 
 necessary_accounts=("root" "bin" "daemon" "adm" 
-"lp" "sync" "shutdown" "halt" "adiosl" "mysql" 
-"cubrid" "dbus" "rpc" "rpcuser" "haldaemon" 
+"lp" "sync" "shutdown" "halt" "ubuntu" "user"
+"messagebus" "syslog" "avahi" "kernoops"
+"whoopsie" "colord" "systemd-network" 
+"systemd-resolve""systemd-timesync" "mysql"
+ "dbus" "rpc" "rpcuser" "haldaemon" 
 "apache" "postfix" "gdm")
 
 all_users=$(getent passwd | awk -F: '{print $1}')
