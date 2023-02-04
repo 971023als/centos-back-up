@@ -44,7 +44,7 @@ if [ "$current_shell" != "/bin/false" ]; then
   new_line=$(echo "$line" | sed "s#$current_shell#/bin/false#")
 
   # /etc/passwd 파일 업데이트
-  sudo sed -i "s#$line#$new_line#" /etc/passwd
+  sudo sed -i "s@$line@$new_line@" /etc/passwd
 fi
 
 
