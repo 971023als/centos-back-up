@@ -21,14 +21,14 @@ TMP1=`SCRIPTNAME`.log
 >$TMP1  
 
 # Apache의 구성 디렉터리로 변경
-file="/etc/apache2/sites-enabled/"
+file="/etc/conf/httpd.conf"
 
 # DocumentRoot 값을 원하는 경로로 바꿉니다
 sed -i 's#DocumentRoot /var/www/html#DocumentRoot /home/centos/newphp/' $file
 
 
-# Restart Apache to apply the changes
-service restart apache2
+# 아파치 재시작
+service restart httpd
 
 
 

@@ -21,7 +21,7 @@ TMP1=`SCRIPTNAME`.log
 >$TMP1  
 
 # specify the user to replace the owner with
-new_owner=adiosl
+new_owner=root
 
 # find files and directories with nonexistent owners and groups
 results=$(find / \( -nouser -o -nogroup \) -print 2>/dev/null)
