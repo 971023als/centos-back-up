@@ -23,6 +23,7 @@ TMP1=`SCRIPTNAME`.log
 
 >$TMP1  
 
+
 # /etc/hosts.equiv에 대한 소유자 및 사용 권한 설정
 if [ -f /etc/hosts.equiv ]; then
   chown root:root /etc/hosts.equiv
