@@ -27,9 +27,6 @@ file="/etc/conf/httpd.conf"
 sed -i 's#DocumentRoot /var/www/html#DocumentRoot /home/centos/newphp/' $file
 
 
-# 아파치 재시작
-service restart httpd
-
 
 
 
