@@ -15,10 +15,7 @@ cat << EOF >> $result
 EOF
 
 BAR
-
-TMP1=`SCRIPTNAME`.log
-
->$TMP1  
+  
 
 # /etc/passwd에서 UID가 0인 계정을 확인합니다
 if grep -q ":0:" /etc/passwd; then
