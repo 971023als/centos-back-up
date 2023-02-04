@@ -32,11 +32,8 @@ chmod 4750 /usr/bin/su
 # 휠 그룹에 허용된 사용자 계정 추가
 
 users=("root" "bin" "daemon" "adm" 
-"lp" "sync" "shutdown" "halt" "ubuntu" "user"
-"messagebus" "syslog" "avahi" "kernoops"
-"whoopsie" "colord" "systemd-network" 
-"systemd-resolve""systemd-timesync" "mysql"
- "dbus" "rpc" "rpcuser" "haldaemon" 
+"lp" "sync" "shutdown" "halt" 
+"mysql" "dbus" "rpc" "rpcuser" "haldaemon" 
 "apache" "postfix" "gdm" "adiosl")
 
 for user_name in "${users[@]}"; do
