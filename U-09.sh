@@ -21,20 +21,10 @@ TMP1=`SCRIPTNAME`.log
 >$TMP1  
 
 # 소유자 및 그룹을 루트로 변경
-sudo chown root:root /etc/inetd.conf
+sudo chown root:root  /etc/hosts
 
 # 권한을 600으로 변경(읽기-쓰기 소유자만 해당)
-sudo chmod 600 /etc/inetd.conf
-
-
-# # LINUX - xinetd
-# 소유자 및 그룹을 루트로 변경
-sudo chown root:root /etc/xinetd.conf
-
-#  권한을 600으로 변경(읽기-쓰기 소유자만 해당)
-sudo chmod 600 /etc/xinetd.conf
-
-# 하위 파일...
+sudo chmod 600  /etc/hosts
 
 cat $result
 
