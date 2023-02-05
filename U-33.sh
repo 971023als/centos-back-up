@@ -31,8 +31,6 @@ if [ $(sudo service named status | grep -c "is running") -eq 0 ]; then
 else
     WARN "DNS 서비스가 아직 실행 중입니다."
 fi
-
-
  
 
 
