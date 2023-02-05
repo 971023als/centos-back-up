@@ -22,15 +22,15 @@ TMP1=`SCRIPTNAME`.log
 
 # 불필요한 파일 및 디렉터리 확인
 INFO "Apache 홈 디렉토리에서 불필요한 파일 및 디렉터리 확인..."
-find /etc/conf/httpd.conf -type d -name "manual"
+find /etc/httpd/conf/httpd.conf -type d -name "manual"
 
 # manual 디렉터리 및 파일 제거
 INFO "수동 디렉터리 및 파일 제거..."
-sudo rm -rf /etc/conf/httpd.conf/manual
+sudo rm -rf /etc/httpd/conf/httpd.confmanual
 
 # 파일 및 디렉터리가 제거되었는지 확인
 INFO "수동 디렉터리 및 파일이 제거되었는지 확인하는 중..."
-ls /etc/conf/httpd.conf
+ls /etc/httpd/conf/httpd.conf
 
 
 

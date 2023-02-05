@@ -21,7 +21,7 @@ TMP1=`SCRIPTNAME`.log
 >$TMP1  
 
 # [Apache_home], [username] 및 [groupname]을(를) 적절한 값으로 바꿈
-APACHE_CONF_FILE=etc/conf/httpd.conf
+APACHE_CONF_FILE=/etc/httpd/conf/httpd.conf
 USERNAME=adiosl
 GROUPNAME=adiosl
 
