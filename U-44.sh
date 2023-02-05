@@ -15,7 +15,6 @@ cat << EOF >> $result
 EOF
 
 BAR
-  
 
 ROOT_UID=0
 
@@ -26,6 +25,7 @@ if ! grep -q ":$ROOT_UID:" /etc/passwd; then
   # 예제 작업: 루트 계정과 동일한 UID를 가진 새 사용자 추가
   sudo useradd -u $ROOT_UID newuser
 fi
+
 
 
 
