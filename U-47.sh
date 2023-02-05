@@ -20,7 +20,11 @@ TMP1=`SCRIPTNAME`.log
 
 >$TMP1  
 
-echo "PASS_MAX_DAYS 8" > /etc/login.defs
+# 최대 암호 사용 기간(일)
+max_age=90
+
+# /etc/login.defs에서 최대 암호 사용 기간 설정
+sudo sed -i "s/^\(PASS_MAX_DAYS\s*\).*/\1$max_age/" /etc/login.defs
 
 cat $result
 
