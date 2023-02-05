@@ -24,7 +24,7 @@ TMP1=`SCRIPTNAME`.log
 file="/etc/httpd/conf/httpd.conf"
 
 # DocumentRoot 값을 원하는 경로로 바꿉니다
-sed -i 's#DocumentRoot /var/www/html#DocumentRoot /home/centos/newphp/#' $file
+sed -i 's#DocumentRoot /var/www/html#DocumentRoot /home/centos/newphp/#g' $file
 
 
 
