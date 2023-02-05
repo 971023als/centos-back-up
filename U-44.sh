@@ -17,21 +17,17 @@ EOF
 BAR
   
 
-# /etc/passwd에서 UID가 0인 계정을 확인합니다
-if grep -q ":0:" /etc/passwd; then
-  # UID가 0인 계정의 사용자 이름 가져오기
-  username=$(grep ":0:" /etc/passwd | cut -d: -f1)
+ROOT_UID=0
 
-  # 계정이 사용 중인지 확인합니다
-  if who | grep -q $username; then
-    INFO "UID가 0인 계정 $username이(가) 현재 사용 중이므로 변경하거나 삭제할 수 없습니다."
-  fi
-
-  # 계정의 UID를 다른 값으로 변경합니다
-  new_uid=2023 # 예제 값, 필요에 따라 변경
-  usermod -u $new_uid $username
-  OK "$username의 UID를 $new_uid로 변경했습니다."
+# 루트 계정과 동일한 UID를 가진 계정이 있는지 확인하십시오
+if ! grep -q ":$ROOT_UID:" /etc/passwd; then
+  # 루트 계정과 동일한 UID를 가진 계정이 없는 경우 작업 수행
+  INFO "루트 계정과 동일한 UID를 가진 계정이 없습니다."
+  # 예제 작업: 루트 계정과 동일한 UID를 가진 새 사용자 추가
+  sudo useradd -u $ROOT_UID newuser
 fi
+
+
 
 
 cat $result
