@@ -19,11 +19,8 @@ cat << EOF >> $result
 EOF
 
 BAR
-
-
 # SMTP 서비스 중지
 sudo service sendmail stop
-
 
 CONF_FILE=/etc/postfix/main.cf
 
@@ -40,7 +37,7 @@ if grep -q "smtpd_recipient_restrictions" "$CONF_FILE"; then
     INFO "smtpd_messagions에 noexpn 및 novfy가 추가되었습니다."
   fi
 else
-  WARN "구성 파일에서 esxd_disclusions를 찾을 수 없습니다."
+  INFO "구성 파일을 찾을 수 없습니다."
 fi
 
 
