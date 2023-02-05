@@ -19,10 +19,6 @@ EOF
 
 BAR
 
-TMP1=`SCRIPTNAME`.log
-
-> $TMP1
-
 
 sudo service snmpd stop
 
