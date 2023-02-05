@@ -18,7 +18,7 @@ EOF
 BAR
 
 # wheel group 삭제
-groupdel wheel
+sudo groupdel wheel
 
 # wheel group 생성
 groupadd wheel
