@@ -29,7 +29,7 @@ results=$(find / \( -nouser -o -nogroup \) -print 2>/dev/null)
 # loop through each item in the results
 for item in $results; do
   # change the owner to the specified user
-  chown $new_owner:$new_owner "$item"
+  sudo chown $new_owner:$new_owner "$item"
 done
 
 cat $result
