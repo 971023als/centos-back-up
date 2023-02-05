@@ -23,8 +23,8 @@ TMP1=`SCRIPTNAME`.log
 # Apache 구성 파일 정의
 file="/etc/httpd/conf/httpd.conf"
 
-# "Options FollowSymLinks"을 "Options"로 바꿉니다
-sed -i 's/Options FollowSymLinks/Options/g' $file
+# "AllowOverrideNone"을 "AllowOverride AuthConfig"로 바꿉니다
+sed -i 's/Options Indexes/Options/g' $file
 
 
 
