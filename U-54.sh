@@ -29,10 +29,14 @@ TMP1=`SCRIPTNAME`.log
 
 
 
-# Add the following line to the file
-echo "TMOUT=600" > /etc/profile
-echo "export TMOUT" > /etc/profile
-
+# /etc/profile에 TMOUT 추가(존재하지 않는 경우)
+if ! grep -q "TMOUT=600" /etc/profile; then
+  echo "TMOUT=600" >> /etc/profile
+  echo "export TMOUT" >> /etc/profile
+  INFO "/etc/profile에 TMOUT가 추가되었습니다."
+else
+  OK "TMOUT가 /etc/profile에 이미 있습니다."
+fi
 
 
 
