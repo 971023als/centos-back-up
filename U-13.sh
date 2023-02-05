@@ -18,8 +18,7 @@ EOF
 BAR
 
 # 실행 파일의 경로 지정
-executables=(/bin/ping /usr/bin/passwd /usr/bin/sudo)
-
+executables=("/bin/ping" "/usr/bin/passwd" "/usr/bin/sudo")
 # 파일이 있는지 확인합니다
 if [ ! -e $executables ]; then
   INFO "$exec_file이 없습니다."
