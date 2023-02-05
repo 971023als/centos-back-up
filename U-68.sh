@@ -23,24 +23,21 @@ TMP1=`SCRIPTNAME`.log
 
 > $TMP1
 
-# /etc/motd 파일 편집
-echo "이 시스템에 오신 것을 환영합니다!" > /etc/motd
-echo "다음 경고에 주의하십시오.: " >> /etc/motd
+TMP1=`SCRIPTNAME`.log
 
-# /etc/issue 파일 편집
-echo "이 시스템에 오신 것을 환영합니다!" > /etc/issue
-echo "다음 경고에 주의하십시오.: " >> /etc/issue
+> $TMP1 
 
-# /etc/vsftpd/vsftpd.conf 파일 편집
-sudo sed -i 's/#ftpd_banner=.*/ftpd_banner=이 시스템에 오신 것을 환영합니다!/' /etc/vsftpd/vsftpd.conf
-sudo echo "ftpd_banner=다음 경고에 유의하십시오.: " >> /etc/vsftpd/vsftpd.conf
+files=("/etc/motd" "/etc/issue.net" "/etc/vsftpd/vsftpd.conf" "/etc/mail/sendmail.cf" "/etc/named.conf")
+message="시스템에 오신 것을 환영합니다. 이 시스템은 인증된 용도로만 사용됩니다."
 
-# /etc/mail/sendmail.cf 파일 편집
-sudo echo "GreetingMessage=이 시스템에 오신 것을 환영합니다!" >> /etc/mail/sendmail.cf 
-
-# /etc/named.conf 파일 편집
-sudo sed -i 's/GreetingMessage.*/GreetingMessage=이 시스템에 오신 것을 환영합니다!/' /etc/named.conf
-sudo echo "GreetingMessage=다음 경고에 유의하십시오.: " >> /etc/named.conf
+for file in "${files[@]}"; do
+  if [ ! -e "$file" ]; then
+    INFO "$fil e이 없습니다. 건너뛰기."
+  else
+    echo "$message" > "$file"
+    INFO "로그온 메시지가 $file 로 설정되었습니다."
+  fi
+done
 
 
 
