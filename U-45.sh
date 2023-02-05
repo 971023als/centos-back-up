@@ -21,13 +21,13 @@ BAR
 sudo groupdel wheel
 
 # wheel group 생성
-groupadd wheel
+sudo groupadd wheel
 
 # su 명령의 그룹을 휠 그룹으로 변경합니다
-chgrp wheel /usr/bin/su
+sudo chgrp wheel /usr/bin/su
 
 # su 명령에 대한 사용 권한을 4750으로 설정합니다
-chmod 4750 /usr/bin/su
+sudo chmod 4750 /usr/bin/su
 
 # 휠 그룹에 허용된 사용자 계정 추가
 
@@ -37,7 +37,7 @@ users=("root" "bin" "daemon" "adm"
 "apache" "postfix" "gdm" "adiosl")
 
 for user_name in "${users[@]}"; do
-  usermod -aG wheel "$user_name"
+  sudo usermod -aG wheel "$user_name"
 done
 
 
