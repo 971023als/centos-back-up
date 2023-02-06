@@ -16,10 +16,6 @@ EOF
 
 BAR
 
-TMP1=`SCRIPTNAME`.log
-
->$TMP1  
-
 # Backup files
 cp /etc/profile /etc/profile.bak
 cp ~/.profile ~/.profile.bak

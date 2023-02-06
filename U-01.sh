@@ -25,8 +25,6 @@ sudo cp /etc/pam.d/login /etc/pam.d/login.bak
 # /etc/pam.d/login 파일에 새 설정 삽입
 sudo echo "auth required pam_tally2.so deny=5 onerr=fail unlock_time=1800" >> /etc/pam.d/login
 
-
-
 # /etc/securety 파일 백업
 sudo cp /etc/securety /etc/securety.bak
 
