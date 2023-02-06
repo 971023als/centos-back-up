@@ -33,7 +33,7 @@ fi
 services=("nfsd" "statd" "mountd")
 
 for service in "${services[@]}"; do
-  service "$service" stop
+  service disable "$service"
   if [ $? -eq 0 ]; then
     OK "$서비스가 중지되었습니다."
   else

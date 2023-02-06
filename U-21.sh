@@ -16,16 +16,14 @@ EOF
 
 BAR
 
-
-
 # rlogin 서비스 사용 안 함
-service disable rlogin
+sudo service disable rlogin
 
 # rsh 서비스 사용 안 함
-service disable rsh
+sudo service disable rsh
 
 # exec 서비스 사용 안 함
-service disable exec
+sudo service disable exec
 
 
 cat $result
