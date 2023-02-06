@@ -29,7 +29,7 @@ if [ ! -f $log_file ]; then
 fi
 
 # 패치 설치
-yum update
+yum update -y
 yum upgrade -y
 
 # 설치된 패치 기록

@@ -16,10 +16,6 @@ EOF
 
 BAR
 
-TMP1=`SCRIPTNAME`.log
-
->$TMP1  
-
 # /etc/login.defs에서 최소 암호 길이 설정
 sed -i 's/^PASS_MIN_LEN.*/PASS_MIN_LEN 8/' /etc/login.defs
 
