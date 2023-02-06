@@ -18,47 +18,14 @@ BAR
 
 
 
-rlogin="/etc/xinetd.d/rlogin"
+# rlogin 서비스 사용 안 함
+service disable rlogin
 
-rsh="/etc/xinetd.d/rsh"
+# rsh 서비스 사용 안 함
+service disable rsh
 
-rexec="/etc/xinetd.d/rexec"
-
-# rlogin 파일 생성
-echo "service rlogin
-{
-socket_type = stream
-wait = no
-user = nobody
-log_on_success += USERID
-log_on_failure += USERID
-server = /usr/sdin/in.fingerd
-disable = yes
-}" > $rlogin
-
-# rsh 파일 생성
-echo "service rsh
-{
-socket_type = stream
-wait = no
-user = nobody
-log_on_success += USERID
-log_on_failure += USERID
-server = /usr/sdin/in.fingerd
-disable = yes
-}" > $rsh
-
-# rexec 파일 생성
-echo "service rexec
-{
-socket_type = stream
-wait = no
-user = nobody
-log_on_success += USERID
-log_on_failure += USERID
-server = /usr/sdin/in.fingerd
-disable = yes
-}" > $rexec
+# exec 서비스 사용 안 함
+service disable exec
 
 
 cat $result
