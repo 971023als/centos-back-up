@@ -21,8 +21,8 @@ EOF
 BAR
 
 # SSH 설치
-sudo apt-get update -y
-sudo apt-get install ssh -y
+sudo yum update -y
+sudo yum install ssh -y
 
 # SSH 서비스 시작
 sudo service start ssh
