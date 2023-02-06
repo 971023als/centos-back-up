@@ -28,8 +28,6 @@ filename="/etc/exports"
 sudo chown root "$filename"
 sudo chmod 644 "$filename"
 
-
-
 cat $result
 
 echo ; echo 
