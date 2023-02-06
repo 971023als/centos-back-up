@@ -41,7 +41,7 @@ else
   WARN "$filename의 소유자를 루트로 설정하지 못했습니다."
 fi
 
-if [ "$permission" -le 644 ]; then
+if [ $(expr "$permission" \<= 644) -eq 1 ]; then
   OK "$filename의 권한이 644 이하로 설정되었습니다."
 else
   WARN "$filename의 권한을 644 이하로 설정하지 못했습니다."
