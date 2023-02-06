@@ -38,7 +38,8 @@ necessary_groups=("root" "sudo" "sys" "adm" "wheel"
 "apache" "postfix" "gdm" "adiosl" "mysql" "cubrid"
  "messagebus" "syslog" "avahi" "whoopsie"
 "colord" "systemd-network" "systemd-resolve"
-"systemd-timesync" "mysql" "sync" "user")
+"systemd-timesync" "mysql" "user"
+"www-data" "sync")
 
 all_groups=$(getent group | awk -F: '{print $1}')
 
