@@ -20,15 +20,16 @@ EOF
 
 BAR
 
+# SSH 설치
+sudo apt-get update -y
+sudo apt-get install ssh -y
 
-
-sudo yum install openssh-server -y
-
+# SSH 서비스 시작
 sudo service start ssh
 
-sudo service enable ssh
+# SSHD 서비스 시작
+sudo service start sshd
 
-service status ssh
 
 
 cat $result
