@@ -20,19 +20,20 @@ TMP1=`SCRIPTNAME`.log
 
 >$TMP1  
 
-# 불필요한 파일 및 디렉터리 확인
-INFO "Apache 홈 디렉토리에서 불필요한 파일 및 디렉터리 확인..."
-find /etc/httpd/conf/httpd.conf -type d -name "manual"
+HTTPD_ROOT="/etc/httpd/conf/httpd.conf"
+UNWANTED_ITEMS="manual samples docs"
 
-# manual 디렉터리 및 파일 제거
-INFO "수동 디렉터리 및 파일 제거..."
-sudo rm -rf /etc/httpd/conf/httpd.confmanual
-
-# 파일 및 디렉터리가 제거되었는지 확인
-INFO "수동 디렉터리 및 파일이 제거되었는지 확인하는 중..."
-ls /etc/httpd/conf/httpd.conf
-
-
+if [ `ps -ef | grep httpd | grep -v "grep" | wc -l` -eq 0 ]; then
+    echo "Apache is not running."
+else
+    for item in $UNWANTED_ITEMS
+    do
+        if [ -d "$HTTPD_ROOT/$item" ] || [ -f "$HTTPD_ROOT/$item" ]; then
+            sudo rm -rf "$HTTPD_ROOT/$item"
+            echo "$item has been removed from $HTTPD_ROOT"
+        fi
+    done
+fi
 
 cat $result
 
