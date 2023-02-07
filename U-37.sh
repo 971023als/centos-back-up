@@ -20,22 +20,10 @@ TMP1=`SCRIPTNAME`.log
 
 >$TMP1  
 
+HTTPD_CONF_FILE="/etc/httpd/conf/httpd.conf"
 
+sed -i "s/AllowOverride None/AllowOverride AuthConfig/g" "$HTTPD_CONF_FILE"
 
-# Apache 구성 파일 정의
-file="/etc/httpd/conf/httpd.conf"
-
-if [ -f "$file" ]; then
-  # "AllowOverrideNone"을 "AllowOverride AuthConfig"로 바꿉니다
-  sed -i 's/AllowOverride None/AllowOverride AuthConfig/g' $file
-
-  # 변경 여부 확인
-  if grep -q "AllowOverride AuthConfig" $file; then
-    OK "AllowOverrideNone이 AllowOverrideAuthConfig로 대체."
-  else
-    WARN "AllowOverrideNone을 AllowOverrideAuthConfig로 대체 불가."
-  fi
-fi
 
 
 
