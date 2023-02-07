@@ -18,19 +18,13 @@ TMP1=`SCRIPTNAME`.log
 
 >$TMP1  
 
-#DNS 서비스 중지
-sudo service named stop
+# named 서비스의 PID 찾기
+PIDs=$(ps -ef | grep named | awk '{print $2}')
 
-#부팅 시 DNS 서비스를 시작하지 않도록 설정
-sudo chkconfig named off
-
-#DNS 서비스가 중지되었는지 확인합니다
-
-if [ $(sudo service named status | grep -c "is running") -eq 0 ]; then
-    OK "DNS 서비스가 중지되었습니다."
-else
-    WARN "DNS 서비스가 아직 실행 중입니다."
-fi
+# named 서비스 중지
+for PID in $PIDs; do
+    kill -9 $PID
+done
  
 
 
