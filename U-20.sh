@@ -20,12 +20,23 @@ TMP1=`SCRIPTNAME`.log
 
 >$TMP1  
 
-# vsftpd 구성 파일 백업
-cp /etc/vsftpd.conf /etc/vsftpd.conf.bak
+# 일반 FTP - Anonymous FTP 접속 제한 설정 방법
+sudo userdel ftp
 
-# 익명 FTP 연결 사용 안 함
-sed -i 's/^anonymous_enable=YES/anonymous_enable=NO/' /etc/vsftpd.conf
+# vsftpd.conf 파일의 경로 설정
+vsftpd_conf_file="/etc/vsftpd.conf"
 
+# vsftpd.conf 파일이 있는지 확인합니다
+if [ -f $vsftpd_conf_file ]; then
+  # anonymous_enable 줄 제거(존재하는 경우)
+  sed -i '/^anonymous_enable/d' $vsftpd_conf_file
+
+  # 값이 없는 anonymous_enable 행을 추가합니다
+  echo "anonymous_enable=NO" >> $vsftpd_conf_file
+else
+  # 파일을 찾을 수 없음
+  INFO " $vsftpd_conf_file 을 찾을 수 없습니다."
+fi
 
 cat $result
 
