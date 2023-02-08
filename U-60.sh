@@ -24,12 +24,6 @@ BAR
 sudo yum update -y
 sudo yum install ssh -y
 
-# SSH 서비스 시작
-sudo service start ssh
-
-# SSHD 서비스 시작
-sudo service start sshd
-
 
 
 cat $result
