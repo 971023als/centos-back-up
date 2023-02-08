@@ -29,8 +29,6 @@ kill -9 $pid
 # /etc/rc2.d에서 sendmail init 스크립트 이동
 mv /etc/rc2.d/S88sendmail /etc/rc2.d/S88sendmail_bak
 
-
-
 cat $result
 
 echo ; echo 
