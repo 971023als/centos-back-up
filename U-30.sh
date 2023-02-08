@@ -1,15 +1,6 @@
 #!/bin/bash
 
- 
-
 . function.sh
-
- 
-TMP1=`SCRIPTNAME`.log
-
-> $TMP1
- 
- 
 
 BAR
 
@@ -25,7 +16,6 @@ EOF
 
 BAR
 
-
 # Sendmail 서비스의 PID 찾기
 PIDs=$(ps -ef | grep sendmail | awk '{print $2}')
 
@@ -33,9 +23,6 @@ PIDs=$(ps -ef | grep sendmail | awk '{print $2}')
 for PID in $PIDs; do
     kill -9 $PID
 done
-
-
-
 
 cat $result
 
