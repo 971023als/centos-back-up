@@ -21,12 +21,11 @@ TMP1=`SCRIPTNAME`.log
 >$TMP1  
 
 
-# 계정 잠금 임계값을 5로 설정
-echo "auth required pam_tally2.so deny=5 unlock_time=900" >> /etc/pam.d/common-auth
+# 원본 파일 백업
+cp /etc/pam.d/system-auth /etc/pam.d/system-auth.bak
 
-# 변경 사항 확인
-grep "pam_tally2.so" /etc/pam.d/common-auth
-
+# 파일의 줄 바꾸기
+sed -i 's/auth.*/auth required \/lib\/security\/pam_tally.so deny=5 unlock_time=120 no_magic_root/' /etc/pam.d/system-auth
 
 
 
