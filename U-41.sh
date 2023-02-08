@@ -28,8 +28,6 @@ sed -i 's#DocumentRoot /var/www/html#DocumentRoot /home/centos/newphp/#g' $file
 
 
 
-
-
 cat $result
 
 echo ; echo
