@@ -16,7 +16,6 @@ EOF
 
 BAR
 
-
 # /etc/passwd의 각 줄을 반복합니다
 while read line; do
   # 구분 기호로 ':'를 사용하여 줄을 필드로 분할
