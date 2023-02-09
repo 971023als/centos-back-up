@@ -1,11 +1,7 @@
 #!/bin/bash
 
- 
-
 . function.sh
  
- 
-
 BAR
 
 CODE [U-60] ssh 원격접속 허용
@@ -23,8 +19,6 @@ BAR
 # SSH 설치
 sudo yum update -y
 sudo yum install ssh -y
-
-
 
 cat $result
 

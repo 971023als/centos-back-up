@@ -24,7 +24,6 @@ TMP1=`SCRIPTNAME`.log
 
 > $TMP1 
 
-
 # vsftpd 서비스를 중지합니다:
 sudo service vsftpd stop
 
