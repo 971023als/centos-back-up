@@ -47,8 +47,6 @@ while read home_dir; do
   done < <(ls -ld "$home_dir")
 done < <(cat /etc/passwd | awk -F ':' '{print $6}')
 
-
-
 cat $result
 
 echo ; echo 
