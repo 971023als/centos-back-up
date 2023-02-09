@@ -24,8 +24,6 @@ TMP1=`SCRIPTNAME`.log
 
 > $TMP1 
 
-
-
 # Backup the original file
 cp /etc/rsyslog.conf /etc/rsyslog.conf.bak
 
@@ -41,7 +39,6 @@ EOF
 
 # Restart the rsyslog service
 service rsyslog restart
-
 
 cat $result
 

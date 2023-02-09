@@ -1,10 +1,6 @@
 #!/bin/bash
 
- 
-
 . function.sh
-
- 
 
 BAR
 
@@ -32,8 +28,6 @@ else
   # FTP 서비스가 실행되고 있지 않습니다. 루트 로그인 허용
   sed -i 's/PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config
 fi
-
-
 
 cat $result
 

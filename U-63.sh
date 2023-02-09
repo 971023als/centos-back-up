@@ -1,10 +1,7 @@
 #!/bin/bash
 
- 
-
 . function.sh
  
-
 BAR
 
 CODE [U-63] ftpusers 파일 소유자 및 권한 설정
@@ -28,7 +25,6 @@ sudo chown root:root /etc/vsftpd/ftpusers
 
 # 파일 권한을 640으로 변경
 sudo chmod 640 /etc/vsftpd/ftpusers
-
 
 cat $result
 

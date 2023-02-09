@@ -1,10 +1,6 @@
 #!/bin/bash
 
- 
-
 . function.sh
-
- 
 
 BAR
 
@@ -25,7 +21,6 @@ TMP1=`SCRIPTNAME`.log
 
 > $TMP1 
 
-
 # ServerTokens 지시문이 이미 설정되어 있는지 확인
 grep -q "^ServerTokens" /etc/httpd/conf/httpd.conf
 if [ $? -eq 0 ]; then
@@ -45,9 +40,6 @@ else
   # ServerSignature 지시어 추가
   echo "ServerSignature Off" >> /etc/httpd/conf/httpd.conf
 fi
-
-
-
 
 cat $result
 

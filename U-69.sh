@@ -1,10 +1,7 @@
 #!/bin/bash
 
- 
-
 . function.sh
  
-
 BAR
 
 CODE [U-69] NFS 설정파일 접근권한

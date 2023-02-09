@@ -4,8 +4,6 @@
 
 . function.sh
 
- 
-
 BAR
 
 CODE [U-65] at 파일 소유자 및 권한 설정
@@ -30,7 +28,6 @@ sudo chmod 4750 /usr/bin/at
 sudo chown root /etc/at.deny
 
 sudo chmod 640 /etc/at.deny
-
 
 cat $result
 
