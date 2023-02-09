@@ -20,13 +20,17 @@ TMP1=`SCRIPTNAME`.log
 
 >$TMP1  
 
-# Apache의 구성 디렉터리로 변경
-file="/etc/httpd/conf/httpd.conf"
-
-# DocumentRoot 값을 원하는 경로로 바꿉니다
-sed -i 's#DocumentRoot /var/www/html#DocumentRoot /home/centos/newphp/#g' $file
+# 확인할 Apache2 Document Root 디렉토리 설정
+config_file="/etc/httpd/conf/httpd.conf"
 
 
+# DocumentRoot가 기본 경로로 설정되어 있는지 확인합니다
+if [ "$config_file" = "/var/www/html" ] ; then
+  INFO "DocumentRoot가 기본 경로로 설정되었습니다: /var/www/html"
+else
+  sed -i 's|DocumentRoot.*|DocumentRoot "/home/ubuntu/newphp/"|' /etc/httpd/conf/httpd.conf
+  INFO "DocumentRoot를 /home/ubuntu/newphp/로 변경되었습니다."
+fi
 
 cat $result
 

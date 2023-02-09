@@ -16,11 +16,6 @@ EOF
 
 BAR
 
-TMP1=`SCRIPTNAME`.log
-
->$TMP1  
-
-
 # named 서비스의 PID 찾기
 PIDs=$(ps -ef | grep named | awk '{print $2}')
 

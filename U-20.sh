@@ -14,11 +14,7 @@ cat << EOF >> $result
 
 EOF
 
-BAR
-
-TMP1=`SCRIPTNAME`.log
-
->$TMP1  
+BAR 
 
 # 일반 FTP - Anonymous FTP 접속 제한 설정 방법
 sudo userdel ftp
