@@ -20,14 +20,36 @@ TMP1=`SCRIPTNAME`.log
 
 > $TMP1
 
-# FTP 서비스가 실행 중인지 확인합니다
-if service vsftpd status | grep -q "running"; then
-  # FTP 서비스가 실행 중입니다. 루트 로그인을 차단
-  sed -i 's/#PermitRootLogin.*/PermitRootLogin no/g' /etc/ssh/sshd_config
+# /etc/ftpusers 파일이 있고 내용이 있는지 확인하십시오
+if [ -s /etc/ftpusers ]; then
+  OK "일부 사용자에 대해 FTP 서비스가 이미 비활성화되어 /etc/ftp 사용자에 루트를 추가하고 있습니다."
+  echo "root" >> /etc/ftpusers
 else
-  # FTP 서비스가 실행되고 있지 않습니다. 루트 로그인 허용
-  sed -i 's/PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config
+  INFO "/etc/ftp 사용자에서 제한을 찾을 수 없습니다. 루트 로그인 제한을 확인합니다."
 fi
+
+# /etc/proftpd.conf에서 RootLogin이 off로 설정되어 있는지 확인합니다
+root_login=$(grep -i "RootLogin" /etc/proftpd.conf)
+if [ -n "$root_login" ]; then
+  if [ "$root_login" != "RootLogin off" ]; then
+    INFO "/etc/proftpd.conf에서 루트 로그인 사용 안 함"
+    sed -i 's/RootLogin.*/RootLogin off/' /etc/proftpd.conf
+  else
+    INFO "루트 로그인이 /etc/proftpd.conf에서 이미 사용할 수 없도록 설정되었습니다."
+  fi
+else
+  INFO "/etc/proftpd.conf에서 정보를 찾을 수 없습니다. /etc/vsftp/ftp 사용자를 확인합니다."
+fi
+
+# /etc/vsftp/ftpusers 파일이 있고 내용이 있는지 확인하십시오
+if [ -s /etc/vsftp/ftpusers ]; then
+  OK "일부 사용자에 대해 FTP 서비스가 이미 사용되지 않도록 설정되어 있으며 /etc/vsftp/ftp 사용자에 루트를 추가하고 있습니다."
+  echo "root" >> /etc/vsftp/ftpusers
+else
+  INFO "/etc/vsftp/ftp 사용자에서 제한을 찾을 수 없습니다."
+fi
+
+
 
 cat $result
 
