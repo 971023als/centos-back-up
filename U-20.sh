@@ -24,6 +24,7 @@ vsftpd_conf_file="/etc/vsftpd.conf"
 
 # vsftpd.conf 파일이 있는지 확인합니다
 if [ -f $vsftpd_conf_file ]; then
+
   # anonymous_enable 줄 제거(존재하는 경우)
   sed -i '/^anonymous_enable/d' $vsftpd_conf_file
 

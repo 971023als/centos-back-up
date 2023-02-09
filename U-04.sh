@@ -1,9 +1,5 @@
 #!/bin/bash
 
- 
-
- 
-
 . function.sh
 
  
@@ -50,10 +46,6 @@ if [ -f $SHADOW_FILE ] ; then
 else
   WARN "섀도우 파일이 없습니다."
 fi
-
- 
-
- 
 
 cat $result
 

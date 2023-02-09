@@ -23,7 +23,6 @@ TMP1=`SCRIPTNAME`.log
 
 >$TMP1  
 
-
 # /etc/hosts.equiv의 소유자를 루트로 변경합니다
 sudo chown root /etc/hosts.equiv
 
@@ -41,8 +40,6 @@ sudo sed -i '/^+/d' /etc/hosts.equiv
 
 # $HOME/.r 호스트에서 '+' 제거
 sudo sed -i '/^+/d' $HOME/.rhosts
-
-
 
 cat $result
 

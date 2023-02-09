@@ -1,10 +1,6 @@
 #!/bin/bash
 
- 
-
 . function.sh
-
- 
 
 BAR
 
@@ -33,9 +29,7 @@ while read file; do
         sudo rm -f "$file"
     fi
 done
- 
-
- 
+  
 cat $result
 
 echo ; echo
