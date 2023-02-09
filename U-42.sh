@@ -29,8 +29,8 @@ if [ ! -f $log_file ]; then
 fi
 
 # 패치 설치
-yum update -y
-yum upgrade -y
+sudo yum update -y
+sudo yum upgrade -y
 
 # 설치된 패치 기록
 echo "Patches installed at $(date)" >> $log_file
