@@ -45,10 +45,6 @@ for user in $user_list; do
     INFO "user $user 셸을 /bin/false로 설정"
   fi
 done
-
-
-
-
  
 
 cat $result

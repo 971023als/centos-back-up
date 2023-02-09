@@ -1,10 +1,7 @@
 #!/bin/bash
 
- 
-
 . function.sh
  
-
 BAR
 
 CODE [U-55] hosts.lpd 파일 소유자 및 권한 설정
@@ -25,8 +22,6 @@ TMP1=`SCRIPTNAME`.log
 > $TMP1
 
 sudo rm -rf /etc/hosts.lpd
-
-
 
 cat $result
 

@@ -1,12 +1,7 @@
 #!/bin/bash
 
- 
-
 . function.sh
 
- 
-
- 
 
 BAR
 
@@ -27,7 +22,6 @@ TMP1=`SCRIPTNAME`.log
 
 > $TMP1
 
-
 # /etc/profile에 TMOUT 추가(존재하지 않는 경우)
 if ! grep -q "TMOUT=600" /etc/profile; then
   echo "TMOUT=600" >> /etc/profile
@@ -36,8 +30,6 @@ if ! grep -q "TMOUT=600" /etc/profile; then
 else
   OK "TMOUT가 /etc/profile에 이미 있습니다."
 fi
-
-
 
 
 cat $result

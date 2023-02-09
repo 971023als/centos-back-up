@@ -60,8 +60,6 @@ done
 sudo rm $TMP2
 
 
- 
-
 cat $result
 
 echo ; echo
