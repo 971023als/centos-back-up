@@ -21,25 +21,36 @@ TMP1=`SCRIPTNAME`.log
 
 > $TMP1 
 
-# ServerTokens 지시문이 이미 설정되어 있는지 확인
-grep -q "^ServerTokens" /etc/httpd/conf/httpd.conf
-if [ $? -eq 0 ]; then
-  # 기존 ServerTokens 지시문 교체
-  sed -i 's/^ServerTokens.*/ServerTokens Prod/' /etc/httpd/conf/httpd.conf
-else
-  # ServerTokens 지시문 추가
-  echo "ServerTokens Prod" >> /etc/httpd/conf/httpd.conf
+filename="/etc/httpd/conf/httpd.conff"
+
+# 파일이 있는지 확인하십시오
+if [ ! -e "$filename" ]; then
+  INFO "$filename 없음"
 fi
 
-# ServerSignature 지시문이 이미 설정되어 있는지 확인
-grep -q "^ServerSignature" /etc/httpd/conf/httpd.conf
-if [ $? -eq 0 ]; then
-  # 기존 ServerSignature 지시문 교체
-  sed -i 's/^ServerSignature.*/ServerSignature Off/' /etc/httpd/conf/httpd.conf
-else
-  # ServerSignature 지시어 추가
-  echo "ServerSignature Off" >> /etc/httpd/conf/httpd.conf
+# 파일을 백업합니다
+sudo cp "$filename" "$filename".bak
+
+#  apache2.conf 파일에서 "ServerTokens Full"을 "ServerTokens Prod"로 바꿉니다
+sudo sed -i 's/ServerTokens Full/ServerTokens Prod/g' "$filename"
+
+# apache2.conf 파일에서 "ServerSignatureOn"을 "ServerSignatureOff"로 바꿉니다
+sudo sed -i 's/ServerSignature On/ServerSignature Off/g' "$filename"
+
+# ServerTokens가 설정되어 있는지 확인합니다
+if ! grep -q "ServerTokens Prod" "$filename"; then
+  echo "ServerTokens Prod" >> "$filename"
 fi
+
+# ServerSignature가 설정되어 있는지 확인합니다
+if ! grep -q "ServerSignature Off" "$filename"; then
+  echo "ServerSignature Off" >> "$filename"
+fi
+
+# Apache를 재시작하여 변경 사항 적용
+sudo systemctl restart apache2
+
+INFO "서버 토큰 서버 시그니처 설정 완료:  $filename."
 
 cat $result
 
