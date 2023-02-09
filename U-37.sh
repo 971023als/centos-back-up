@@ -25,9 +25,6 @@ HTTPD_CONF_FILE="/etc/httpd/conf/httpd.conf"
 sed -i "s/AllowOverride None/AllowOverride AuthConfig/g" "$HTTPD_CONF_FILE"
 
 
-
-
-
 cat $result
 
 echo ; echo
