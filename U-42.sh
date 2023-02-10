@@ -34,8 +34,8 @@ chmod 644 $log_file
 chown root:root $log_file
 
 # 패치 설치
-sudo apt update -y
-sudo apt upgrade -y
+sudo yum update -y
+sudo yum upgrade -y
 
 # 설치된 패치 기록
 echo "Patches installed at $(date)" >> $log_file
