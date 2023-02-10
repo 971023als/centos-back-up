@@ -34,7 +34,7 @@ fi
 sudo sed -i 's/ServerTokens Full/ServerTokens Prod/g' "$filename"
 
 # apache2.conf 파일에서 "ServerSignatureOn"을 "ServerSignatureOff"로 바꿉니다
-sudo sed -i 's/ServerSignature On/ServerSignature Off/g' "$filename"
+sudo sed -i 's/ServerSignature ON/ServerSignature Off/g' "$filename"
 
 # ServerTokens가 설정되어 있는지 확인합니다
 if ! grep -q "ServerTokens Prod" "$filename"; then
