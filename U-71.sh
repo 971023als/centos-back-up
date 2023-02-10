@@ -21,7 +21,7 @@ TMP1=`SCRIPTNAME`.log
 
 > $TMP1 
 
-filename="/etc/httpd/conf/httpd.conff"
+filename="/etc/httpd/conf/httpd.conf"
 
 # 파일이 있는지 확인하십시오
 if [ ! -e "$filename" ]; then
