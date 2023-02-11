@@ -1,14 +1,10 @@
 #!/bin/bash
 
- 
-
 . function.sh
 
 TMP1=`SCRIPTNAME`.log
 
 > $TMP1
-
- 
 
 BAR
 
@@ -26,7 +22,7 @@ BAR
 
 DEF_FILE="/etc/login.defs"
 
-echo "PASS_MIN_DAYS 7" > "$DEF_FILE"
+echo "PASS_MIN_DAYS 7" >> "$DEF_FILE"
  
 cat $result
 
