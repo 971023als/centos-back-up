@@ -24,7 +24,18 @@ for PID in $PIDs; do
     kill -9 $PID
 done
 
-sudo mv /etc/rc.d/rc2.d/S60nfs /etc/rc.d/rc2.d/_S60nfs
+# 부팅 시 프로세스 시작 사용 안 함
+if [ -f "/etc/init.d/nfs" ]; then
+  update-rc.d nfs disable
+fi
+if [ -f "/etc/init.d/statd" ]; then
+  update-rc.d statd disable
+fi
+if [ -f "/etc/init.d/lockd" ]; then
+  update-rc.d lockd disable
+fi
+
+mv /etc/rc.d/rc2.d/S60nfs /etc/rc.d/rc2.d/_S60nfs
 
 cat $result
 
