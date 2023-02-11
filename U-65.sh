@@ -22,7 +22,6 @@ TMP1=`SCRIPTNAME`.log
 
 > $TMP1
 
-
 sudo chmod 4750 /usr/bin/at
 
 sudo chown root /etc/at.deny

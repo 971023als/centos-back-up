@@ -98,11 +98,6 @@ for user in $user_list; do
     userdel "$user"
   fi
 done
-
-
-
-
-
  
 cat $result
 

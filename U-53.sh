@@ -25,7 +25,6 @@ EOF
 
 BAR
 
-
 TMP1=`SCRIPTNAME`.log
 
 > $TMP1
@@ -46,7 +45,6 @@ for user in $user_list; do
   fi
 done
  
-
 cat $result
 
 echo ; echo

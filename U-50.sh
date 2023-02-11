@@ -1,12 +1,6 @@
 #!/bin/bash
 
- 
-
 . function.sh
-
-TMP2=$(mktemp)
-
- 
 
 BAR
 

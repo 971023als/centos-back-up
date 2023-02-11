@@ -59,7 +59,6 @@ done
 # 임시 파일 제거
 sudo rm $TMP2
 
-
 cat $result
 
 echo ; echo
