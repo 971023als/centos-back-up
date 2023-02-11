@@ -21,10 +21,10 @@ TMP1=`SCRIPTNAME`.log
 > $TMP1
 
 # 파일의 소유자를 루트로 변경
-sudo chown root:root /etc/vsftpd/ftpusers
+chown root:root /etc/vsftpd/ftpusers
 
 # 파일 권한을 640으로 변경
-sudo chmod 640 /etc/vsftpd/ftpusers
+chmod 640 /etc/vsftpd/ftpusers
 
 cat $result
 

@@ -22,8 +22,8 @@ TMP1=`SCRIPTNAME`.log
 
 filename="/etc/exports"
 
-sudo chown root "$filename"
-sudo chmod 644 "$filename"
+chown root "$filename"
+chmod 644 "$filename"
 
 cat $result
 
