@@ -45,7 +45,7 @@ all_groups=$(cut -d: -f1 /etc/group)
 for group in $all_groups; do
   if ! [[ "${keep_groups[@]}" =~ "$group" ]]; then
     # 유지할 그룹 목록에 없는 그룹 제거
-    sudo groupdel "$group"
+    groupdel "$group"
   fi
 done
 
