@@ -19,8 +19,8 @@ BAR
 # login.defs 파일에서 PASS_MAX_DAYS 값을 가져옵니다
 LOGIN_DEFS_FILE="/etc/login.defs"
 
-# "PASS_MIN_LEN 5"을 "PASS_MIN_LEN  8"로 바꿉니다
-sed -i 's/PASS_MIN_LEN  5/PASS_MIN_LEN  8/g' $LOGIN_DEFS_FILE
+# "PASS_MIN_LEN    5"을 "PASS_MIN_LEN    8"로 바꿉니다
+sed -i 's/PASS_MIN_LEN    5/PASS_MIN_LEN    8/g' $LOGIN_DEFS_FILE
 
 PAM_FILE="/etc/pam.d/system-auth"
 EXPECTED_OPTIONS="password requisite pam_cracklib.so try_first_pass restry=3 minlen=8 lcredit=-1 ucredit=-1 dcredit=-1 ocredit=-1"
