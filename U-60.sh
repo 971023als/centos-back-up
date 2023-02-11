@@ -17,8 +17,8 @@ EOF
 BAR
 
 # SSH 설치
-sudo yum update -y
-sudo yum install ssh -y
+yum update -y
+yum install ssh -y
 
 cat $result
 
