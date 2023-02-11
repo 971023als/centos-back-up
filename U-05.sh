@@ -16,10 +16,6 @@ EOF
 
 BAR
 
-# Backup files
-cp /etc/profile /etc/profile.bak
-cp ~/.profile ~/.profile.bak
-
 # PATH의 현재 값을 가져옴
 path=$(echo $PATH)
 

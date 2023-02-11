@@ -32,13 +32,6 @@ echo "
     LimitRequestBody $limit
 </Directory>" >> /etc/httpd/conf/httpd.conf
 
-
-
-
-
-
-
-
 cat $result
 
 echo ; echo

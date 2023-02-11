@@ -31,7 +31,6 @@ sudo sed -i 's/#PASS_MIN_DAYS/PASS_MIN_DAYS/g' "$DEF_FILE"
 
 echo "PASS_MIN_DAYS 7" > /etc/login.defs
  
-
 cat $result
 
 echo ; echo

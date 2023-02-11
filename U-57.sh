@@ -30,11 +30,10 @@ do
   group=$(ls -ld $line | awk '{print $4}')
   if [[ $permissions == *"w"* ]] && [[ $owner != *$group* ]]; then
     INFO "소유권 및 권한 변경: $line($owner 및 그룹 $group 소유)"
-    chown $owner:$group $line
-    chmod 750 $line
+    sudo chown $owner:$group $line
+    sudo chmod 750 $line
   fi
 done
-
 
 cat $result
 

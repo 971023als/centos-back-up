@@ -36,7 +36,6 @@ sudo service proftp stop
 # proftp를 시작하지 않도록 설정합니다
 sudo /etc/rc.d/init.d/proftp stop
 
-
 cat $result
 
 echo ; echo 

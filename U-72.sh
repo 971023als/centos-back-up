@@ -24,9 +24,6 @@ TMP1=`SCRIPTNAME`.log
 
 > $TMP1 
 
-# Backup the original file
-cp /etc/rsyslog.conf /etc/rsyslog.conf.bak
-
 # Replace the original file with the new configuration
 cat > /etc/rsyslog.conf << EOF
 *.info;mail.none;authpriv.none;cron.none /var/log/info.log

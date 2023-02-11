@@ -46,7 +46,6 @@ for dir in $hidden_dirs; do
   fi
 done
 
-
 cat $result
 
 echo ; echo 

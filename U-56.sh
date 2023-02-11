@@ -26,7 +26,6 @@ TMP1=`SCRIPTNAME`.log
 
 > $TMP1 
 
-
 # /etc/profile에 UMASK 추가(존재하지 않는 경우)
 if ! grep -q "UMASK=022" /etc/profile; then
   echo "umask 022" >> /etc/profile
