@@ -39,6 +39,8 @@ service proftp stop
 # proftp를 시작하지 않도록 설정합니다
 /etc/rc.d/init.d/proftp stop
 
+yum install net-tools -y
+
 # FTP 포트가 수신 중인지 확인합니다
 if netstat -tnlp | grep -q ':21'; then
   INFO "FTP 포트 닫기(21)..."
