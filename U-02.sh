@@ -20,7 +20,7 @@ BAR
 LOGIN_DEFS_FILE="/etc/login.defs"
 
 # 전에 있던 PASS_MIN_LEN 값을 #PASS_MIN_LEN
-sed -i 's/PASS_MIN_LEN/#PASS_MIN_LEN/g' $LOGIN_DEFS_FILE
+sed -i 's/PASS_MIN_LEN/#PASS_MIN_LEN/g' "$LOGIN_DEFS_FILE"
 
 echo "PASS_MIN_LEN 8" >> "$LOGIN_DEFS_FILE"
 
