@@ -21,6 +21,10 @@ TMP1=`SCRIPTNAME`.log
 
 > $TMP1 
 
+yum install net-tools -y
+
+yum install -y iproute2
+
 # FTP 서비스 중지
 service ftp stop
 
