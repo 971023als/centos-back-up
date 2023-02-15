@@ -26,7 +26,6 @@ done
 
 # 부팅 시 프로세스 시작 사용 안 함
 if [ -f "/etc/init.d/nfs" ]; then
-<<<<<<< Updated upstream
   update-rc.d nfs disable
 fi
 if [ -f "/etc/init.d/statd" ]; then
@@ -37,18 +36,6 @@ if [ -f "/etc/init.d/lockd" ]; then
 fi
 
 mv /etc/rc.d/rc2.d/S60nfs /etc/rc.d/rc2.d/_S60nfs
-=======
-  sudo update-rc.d nfs disable
-fi
-if [ -f "/etc/init.d/statd" ]; then
-  sudo update-rc.d statd disable
-fi
-if [ -f "/etc/init.d/lockd" ]; then
-  sudo update-rc.d lockd disable
-fi
-
-sudo mv /etc/rc.d/rc2.d/S60nfs /etc/rc.d/rc2.d/_S60nfs
->>>>>>> Stashed changes
 
 cat $result
 
